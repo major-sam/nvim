@@ -1,0 +1,1 @@
+require('ruscmd').setup{}
