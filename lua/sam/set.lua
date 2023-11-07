@@ -4,6 +4,7 @@ vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.opt.shell = pwsh
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -17,8 +18,10 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = "~/.vim/undodir"
 vim.opt.undofile = true
+
+vim.opt.guifont = "Space_Mono_Nerd_Font:h11"
 
 vim.opt.hlsearch = false
 vim.opt.incsearch = true
