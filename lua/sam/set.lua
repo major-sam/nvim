@@ -18,8 +18,14 @@ vim.opt.wrap = false
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = "~/.vim/undodir"
 vim.opt.undofile = true
+if vim.fn.has('win32') then
+    vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
+elseif vim.fn.has('linux') then
+    vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+else
+    vim.opt.undodir = os.getenv("TEMP") .. "/.vim/undodir"
+end
 
 vim.opt.guifont = "Space_Mono_Nerd_Font:h11"
 
