@@ -56,7 +56,11 @@ vim.g.ruby_host_prog = 'C:/tools/ruby26/bin/ruby.exe'
 
 vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols={
     ['.*[jJ]enkins[fF]ile.*'] = '',
+    ['.*[dD]ocker[fF]ile.*'] = '' ,
 }
+vim.g.NERDTreeFileExtensionHighlightFullName = 1
+vim.g.NERDTreeDirArrowExpandable = '+'
+vim.g.NERDTreeDirArrowCollapsible = ' '
 
 vim.g.loaded_node_provider = 0
 vim.opt.list = true
