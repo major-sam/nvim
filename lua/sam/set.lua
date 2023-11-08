@@ -63,8 +63,9 @@ vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 30
 vim.g.netrw_localcopydircmd = 'cp -r'
 
+vim.g.perl_host_prog  = 'c:/Strawberry/perl/bin/perl.exe'
 vim.g.python_host_prog  = 'c:/Python27/python.exe'
-vim.g.python3_host_prog  = 'c:/Python312/python.exe'
+vim.g.python3_host_prog  = 'c:/Python310/python.exe'
 vim.g.ruby_host_prog = 'C:/tools/ruby26/bin/ruby.exe'
 
 vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols={
