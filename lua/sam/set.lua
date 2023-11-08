@@ -4,7 +4,9 @@ vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
-vim.opt.shell = pwsh
+if vim.fn.has('win32') then
+    vim.opt.shell = pwsh
+end
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -37,7 +39,6 @@ vim.opt.termguicolors = true
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
-
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
@@ -58,9 +59,21 @@ vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols={
     ['.*[jJ]enkins[fF]ile.*'] = '',
     ['.*[dD]ocker[fF]ile.*'] = '' ,
 }
-vim.g.NERDTreeFileExtensionHighlightFullName = 1
+vim.g.NERDTreeFileExtensionHighlightFullName = 0
 vim.g.NERDTreeDirArrowExpandable = '+'
 vim.g.NERDTreeDirArrowCollapsible = ' '
+vim.g["airline#extensions#tabline#enabled"] = 1
+vim.g["airline#extensions#tabline#formatter"] = 'unique_tail_improved'
+vim.g["airline#extensions#tabline#formatter"] = 'unique_tail'
+vim.g.airline_powerline_fonts = 1
+vim.g.WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
+vim.g.WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
+
+
+vim.opt.langmap = {
+    "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
+}
 
 vim.g.loaded_node_provider = 0
 vim.opt.list = true

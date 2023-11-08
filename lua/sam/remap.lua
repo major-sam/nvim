@@ -60,7 +60,7 @@ end)
 vim.keymap.set("n", "<C-F6>", function()
     vim.cmd("G stage *")
     vim.cmd("G commit --amend --no-edit <CR>")
-    vim.cmd("G push --force <CR>")
+    vim.cmd("G push --force ")
 end)
 
 
@@ -73,5 +73,3 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
-
-
