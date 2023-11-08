@@ -1,11 +1,17 @@
 vim.g.mapleader = " "
 vim.opt.guicursor = ""
-
+local os_name = ''
 vim.opt.nu = true
 vim.opt.relativenumber = true
-
-if vim.fn.has('win32') then
-    vim.opt.shell = pwsh
+if jit and jit.os then
+    os_name = (jit.os):lower()
+else
+    os_name = (os.getenv('OS')):lower()
+end
+if string.match(os_name, 'win') then
+    vim.opt.shell = powershell
+elseif string.match(os_name, 'linux') then
+    vim.opt.shell = '/bin/bash'
 end
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
