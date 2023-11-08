@@ -38,10 +38,15 @@ return require('packer').startup(function(use)
     use("mbbill/undotree")
     use("tpope/vim-fugitive")
     use("nvim-treesitter/nvim-treesitter-context");
+    -- nerdtree
     use 'ryanoasis/vim-devicons'
     use 'scrooloose/nerdtree'
     use 'tiagofumo/vim-nerdtree-syntax-highlight'
     use "philrunninger/nerdtree-visual-selection"
+    use 'vim-airline/vim-airline'
+    use 'vim-airline/vim-airline-themes'
+    use 'airblade/vim-gitgutter'
+    -- lsp
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
@@ -64,17 +69,12 @@ return require('packer').startup(function(use)
             {'rafamadriz/friendly-snippets'},
         }
     }
-    -- use("folke/zen-mode.nvim")
-    -- use("github/copilot.vim")
     use "eandrju/cellular-automaton.nvim"
     use "laytan/cloak.nvim"
     use "tpope/vim-surround"
     use 'tpope/vim-repeat'
     use 'vim-scripts/tasklist.vim'
     use 'martinda/Jenkinsfile-vim-syntax'
-    use 'vim-airline/vim-airline'
-    use 'vim-airline/vim-airline-themes'
-    use 'airblade/vim-gitgutter'
 
 end)
 

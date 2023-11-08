@@ -3,15 +3,18 @@ vim.opt.guicursor = ""
 local os_name = ''
 vim.opt.nu = true
 vim.opt.relativenumber = true
-if jit and jit.os then
-    os_name = (jit.os):lower()
+os_name = vim.loop.os_uname().sysname
+print(os_name)
+if (os_name == 'Windows_NT') then
+    vim.o.shell = "powershell.exe"
+    vim.o.shellcmdflag='-c'
+    vim.o.shellquote='"'
+    vim.o.shellxquote=''
+elseif (os_name == 'Linux') then
+    vim.opt.shell=bash
 else
-    os_name = (os.getenv('OS')):lower()
-end
-if string.match(os_name, 'win') then
-    vim.opt.shell = powershell
-elseif string.match(os_name, 'linux') then
-    vim.opt.shell = '/bin/bash'
+   -- Else default to the system current shell.
+   vim.opt.shell = os.getenv('SHELL')
 end
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
@@ -29,12 +32,15 @@ vim.opt.backup = false
 vim.opt.undofile = true
 if vim.fn.has('win32') then
     vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
+    vim.opt.mouse:append('a')
 elseif vim.fn.has('linux') then
     vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+    vim.opt.undodir = os.getenv("TEMP") .. "/.vim/undodir"
+    vim.opt.mouse = vim.opt.mouse - 'a'
 else
     vim.opt.undodir = os.getenv("TEMP") .. "/.vim/undodir"
+    vim.opt.mouse = vim.opt.mouse - 'a'
 end
-
 vim.opt.guifont = "Space_Mono_Nerd_Font:h11"
 
 vim.opt.hlsearch = false
@@ -65,7 +71,17 @@ vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols={
     ['.*[jJ]enkins[fF]ile.*'] = '',
     ['.*[dD]ocker[fF]ile.*'] = '' ,
 }
-vim.g.NERDTreeFileExtensionHighlightFullName = 0
+vim.g.NERDTreePatternMatchHighlightColor = {
+    ['.*[dD]ocker[fF]ile.*'] = "689FB6",
+    ['.*[jJ]enkins[fF]ile.*'] = "F5C06F"
+}
+vim.g.NERDTreeExtensionHighlightColor = {
+    ['MD'] = "F5C06F"
+}
+vim.g.NERDTreeFileExtensionHighlightFullName = 1
+vim.g.NERDTreeExactMatchHighlightFullName = 1
+vim.g.NERDTreePatternMatchHighlightFullName = 1
+
 vim.g.NERDTreeDirArrowExpandable = '+'
 vim.g.NERDTreeDirArrowCollapsible = ' '
 vim.g["airline#extensions#tabline#enabled"] = 1
@@ -76,7 +92,7 @@ vim.g.WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
 vim.g.WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
 
 
-vim.opt.langmap = {
+vim.opt.langmap ={
     "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     "фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
 }
@@ -92,9 +108,3 @@ vim.opt.listchars = {
     precedes='‹'
 }
 
-if vim.fn.has("win32") == 1 then
-    vim.opt.mouse:append('a')
-    vim.opt.shell = pwsh
-else
-   vim.opt.mouse = vim.opt.mouse - 'a'
-end
