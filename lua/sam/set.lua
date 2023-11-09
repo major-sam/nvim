@@ -71,12 +71,16 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
 vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols={
-    ['.*[jJ]enkins[fF]ile.*'] = '',
-    ['.*[dD]ocker[fF]ile.*'] = '' ,
+    ['.*[jJ]enkins[fF]ile[-_].*'] = '',
+    ['.*[jJ]enkins[fF]ile$'] = '',
+    ['.*[dD]ocker[fF]ile[-_].*'] = '' ,
+    ['.*[dD]ocker[fF]ile'] = '' ,
 }
 vim.g.NERDTreePatternMatchHighlightColor = {
-    ['.*[dD]ocker[fF]ile.*'] = "689FB6",
-    ['.*[jJ]enkins[fF]ile.*'] = "F5C06F"
+    ['.*[jJ]enkins[fF]ile[-_].*'] = "F5C06F",
+    ['.*[jJ]enkins[fF]ile$'] = "F5C06F",
+    ['.*[dD]ocker[fF]ile[-_].*'] = "689FB6",
+    ['.*[dD]ocker[fF]ile$'] = "689FB6",
 }
 vim.g.NERDTreeExtensionHighlightColor = {
     ['MD'] = "F5C06F"

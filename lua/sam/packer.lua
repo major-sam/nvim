@@ -6,7 +6,7 @@ vim.cmd.packadd('packer.nvim')
 return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-
+    -- Basic
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.4',
         -- or                            , branch = '0.1.x',
@@ -38,6 +38,10 @@ return require('packer').startup(function(use)
     use("mbbill/undotree")
     use("tpope/vim-fugitive")
     use("nvim-treesitter/nvim-treesitter-context");
+    use "laytan/cloak.nvim"
+    use "tpope/vim-surround"
+    use 'tpope/vim-repeat'
+    use 'vim-scripts/tasklist.vim'
     -- nerdtree
     use 'ryanoasis/vim-devicons'
     use 'scrooloose/nerdtree'
@@ -47,6 +51,8 @@ return require('packer').startup(function(use)
     use 'vim-airline/vim-airline-themes'
     use 'airblade/vim-gitgutter'
     -- lsp
+    -- use({'ckipp01/nvim-jenkinsfile-linter', requires = { "nvim-lua/plenary.nvim" } })
+    use 'martinda/Jenkinsfile-vim-syntax'
     use {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v1.x',
@@ -69,12 +75,8 @@ return require('packer').startup(function(use)
             {'rafamadriz/friendly-snippets'},
         }
     }
+    -- Fun
     use "eandrju/cellular-automaton.nvim"
-    use "laytan/cloak.nvim"
-    use "tpope/vim-surround"
-    use 'tpope/vim-repeat'
-    use 'vim-scripts/tasklist.vim'
-    use 'martinda/Jenkinsfile-vim-syntax'
 
 end)
 
