@@ -67,6 +67,8 @@ vim.g.perl_host_prog  = 'c:/Strawberry/perl/bin/perl.exe'
 vim.g.python_host_prog  = 'c:/Python27/python.exe'
 vim.g.python3_host_prog  = 'c:/Python310/python.exe'
 vim.g.ruby_host_prog = 'C:/tools/ruby26/bin/ruby.exe'
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
 
 vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols={
     ['.*[jJ]enkins[fF]ile.*'] = '',
@@ -85,6 +87,11 @@ vim.g.NERDTreePatternMatchHighlightFullName = 1
 
 vim.g.NERDTreeDirArrowExpandable = '+'
 vim.g.NERDTreeDirArrowCollapsible = ' '
+vim.g.NERDTreeCopyCmd= 'cp -r '
+vim.g.nerdtree_vis_confirm_open = 0
+vim.g.nerdtree_vis_confirm_delete = 1
+vim.g.nerdtree_vis_confirm_copy = 0
+vim.g.nerdtree_vis_confirm_move = 0
 vim.g["airline#extensions#tabline#enabled"] = 1
 vim.g["airline#extensions#tabline#formatter"] = 'unique_tail_improved'
 vim.g["airline#extensions#tabline#formatter"] = 'unique_tail'
@@ -98,7 +105,6 @@ vim.opt.langmap ={
     "фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
 }
 
-vim.g.loaded_node_provider = 0
 vim.opt.list = true
 vim.opt.listchars = {
     tab='│·',
