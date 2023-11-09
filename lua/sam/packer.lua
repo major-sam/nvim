@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
 
     use { "ellisonleao/gruvbox.nvim" }
     use {
-        'nvim-treesitter/nvim-treesitter',
+        'nvim-treesitter/nvim-treesitter', tag = '0.9.1',
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()

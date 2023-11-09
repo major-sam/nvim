@@ -6,10 +6,10 @@ vim.opt.relativenumber = true
 os_name = vim.loop.os_uname().sysname
 print(os_name)
 if (os_name == 'Windows_NT') then
-    vim.o.shell = "powershell.exe"
-    vim.o.shellcmdflag='-c'
-    vim.o.shellquote='"'
-    vim.o.shellxquote=''
+  vim.o.shell = "powershell.exe"
+  vim.o.shellcmdflag='-c'
+  vim.o.shellquote='"'
+  vim.o.shellxquote=''
 elseif (os_name == 'Linux') then
     vim.opt.shell=bash
 else
@@ -17,8 +17,8 @@ else
    vim.opt.shell = os.getenv('SHELL')
 end
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
