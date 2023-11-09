@@ -27,7 +27,7 @@ return require('packer').startup(function(use)
 
     use { "ellisonleao/gruvbox.nvim" }
     use {
-        'nvim-treesitter/nvim-treesitter', tag = '0.9.1',
+        'nvim-treesitter/nvim-treesitter', tag = 'v0.9.1',
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
@@ -52,6 +52,7 @@ return require('packer').startup(function(use)
     use 'airblade/vim-gitgutter'
     -- lsp
     -- use({'ckipp01/nvim-jenkinsfile-linter', requires = { "nvim-lua/plenary.nvim" } })
+    use 'HiPhish/jinja.vim'
     use 'martinda/Jenkinsfile-vim-syntax'
     use {
         'VonHeikemen/lsp-zero.nvim',

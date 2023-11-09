@@ -134,6 +134,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\harpoon",
     url = "https://github.com/theprimeagen/harpoon"
   },
+  ["jinja.vim"] = {
+    loaded = true,
+    path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\jinja.vim",
+    url = "https://github.com/HiPhish/jinja.vim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp-zero.nvim",

@@ -2,7 +2,7 @@ require 'nvim-treesitter.install'.compilers = {"zig" }
 require 'nvim-treesitter.install'.prefer_git = false
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "vimdoc", "json", "groovy", "c", "lua" },
+  -- ensure_installed = { "vimdoc", "json", "groovy", "c", "lua" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,

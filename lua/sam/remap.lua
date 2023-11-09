@@ -35,15 +35,6 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
--- validate jenkinsfile
---vim.keymap.set("n", "<leader>vc", function()
---        require("jenkinsfile_linter").check_creds()
---end )
---
---vim.keymap.set("n", "<leader>vj", function()
---        require("jenkinsfile_linter").validate()
---end )
---
 -- You can split the window in Vim by typing :split or :vsplit.
 --" Navigate the split view easier by pressing CTRL+j, CTRL+k, CTRL+h, or CTRL+l.
 vim.keymap.set("n", "<c-j>", "<c-w>j")

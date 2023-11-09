@@ -3,19 +3,6 @@ vim.opt.guicursor = ""
 local os_name = ''
 vim.opt.nu = true
 vim.opt.relativenumber = true
-os_name = vim.loop.os_uname().sysname
-print(os_name)
-if (os_name == 'Windows_NT') then
-  vim.o.shell = "powershell.exe"
-  vim.o.shellcmdflag='-c'
-  vim.o.shellquote='"'
-  vim.o.shellxquote=''
-elseif (os_name == 'Linux') then
-    vim.opt.shell=bash
-else
-   -- Else default to the system current shell.
-   vim.opt.shell = os.getenv('SHELL')
-end
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
@@ -31,15 +18,24 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
 if vim.fn.has('win32') then
-    vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
-    vim.opt.mouse:append('a')
+  vim.g.shell = (executable('pwsh.exe') and 'pwsh.exe' or 'powershell.exe')
+  vim.o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command '
+  vim.o.shellquote = ''
+  vim.o.shellxquote = ''
+  vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
+  vim.g.NERDTreeCopyCmd = 'cp -r '
+  vim.g.NERDTreeCopyDirCmd = 'cp -r '
+  vim.g.NERDTreeRemoveDirCmd = 'rm '
+  vim.opt.mouse:append('a')
 elseif vim.fn.has('linux') then
-    vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-    vim.opt.undodir = os.getenv("TEMP") .. "/.vim/undodir"
-    vim.opt.mouse = vim.opt.mouse - 'a'
+  vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+  vim.opt.undodir = os.getenv("TEMP") .. "/.vim/undodir"
+  vim.opt.mouse = vim.opt.mouse - 'a'
+  vim.opt.shell=bash
 else
-    vim.opt.undodir = os.getenv("TEMP") .. "/.vim/undodir"
-    vim.opt.mouse = vim.opt.mouse - 'a'
+  vim.opt.undodir = os.getenv("TEMP") .. "/.vim/undodir"
+  vim.opt.mouse = vim.opt.mouse - 'a'
+  vim.opt.shell = os.getenv('SHELL')
 end
 vim.opt.guifont = "Space_Mono_Nerd_Font:h11"
 
@@ -58,10 +54,6 @@ vim.opt.colorcolumn = "80"
 vim.g.encoding = "utf-8"
 vim.g.nobomb = true
 vim.g.ls=2
-vim.g.netrw_keepdir = 0
-vim.g.netrw_liststyle = 3
-vim.g.netrw_winsize = 30
-vim.g.netrw_localcopydircmd = 'cp -r'
 
 vim.g.perl_host_prog  = 'c:/Strawberry/perl/bin/perl.exe'
 vim.g.python_host_prog  = 'c:/Python27/python.exe'
@@ -91,7 +83,6 @@ vim.g.NERDTreePatternMatchHighlightFullName = 1
 
 vim.g.NERDTreeDirArrowExpandable = '+'
 vim.g.NERDTreeDirArrowCollapsible = ' '
-vim.g.NERDTreeCopyCmd= 'cp -r '
 vim.g.nerdtree_vis_confirm_open = 0
 vim.g.nerdtree_vis_confirm_delete = 1
 vim.g.nerdtree_vis_confirm_copy = 0
