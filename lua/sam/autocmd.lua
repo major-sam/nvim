@@ -11,13 +11,12 @@ autocmd({ "BufEnter" }, {
   pattern = { "*[dD]ocker[fF]ile[-_]*" },
   command = "set filetype=dockerfile",
 })
-autocmd({ "BufRead" }, {
+autocmd({ "BufEnter" }, {
   pattern = {
     "*/main.yaml",
     "*/main.yml"
   },
   callback = function()
     vim.cmd("set ft=yaml.ansible")
-    vim.cmd("set syntax=yaml.ansible")
   end
 })

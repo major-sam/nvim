@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["Vim-Jinja2-Syntax"] = {
+    loaded = true,
+    path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\Vim-Jinja2-Syntax",
+    url = "https://github.com/Glench/Vim-Jinja2-Syntax"
+  },
   ["cellular-automaton.nvim"] = {
     loaded = true,
     path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cellular-automaton.nvim",
@@ -119,6 +124,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["coc.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\coc.nvim",
+    url = "https://github.com/neoclide/coc.nvim"
+  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\friendly-snippets",
@@ -133,11 +143,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\harpoon",
     url = "https://github.com/theprimeagen/harpoon"
-  },
-  ["jinja.vim"] = {
-    loaded = true,
-    path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\jinja.vim",
-    url = "https://github.com/HiPhish/jinja.vim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -259,6 +264,23 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-surround",
     url = "https://github.com/tpope/vim-surround"
+  },
+  ["vim-toml"] = {
+    loaded = true,
+    path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-toml",
+    url = "https://github.com/cespare/vim-toml"
+  },
+  ["yaml.nvim"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\yaml.nvim",
+    url = "https://github.com/cuducos/yaml.nvim"
+  },
+  ["zola.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\vrebyachih\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\zola.nvim",
+    url = "https://github.com/yorik1984/zola.nvim"
   }
 }
 
@@ -267,6 +289,13 @@ time([[Defining packer_plugins]], false)
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\2\nC\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType yaml ++once lua require("packer.load")({'yaml.nvim'}, { ft = "yaml" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

@@ -68,6 +68,12 @@ if vim.fn.has('linux') then
     vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
     vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 end
+-- coc
+vim.keymap.set('i', '<c-space>', function()
+    vim.fn["coc#refresh"]()
+  end,
+  { noremap = true ,silent = true })
+
 --fun
 vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader>lf", "<cmd>CellularAutomaton game_of_life<CR>");

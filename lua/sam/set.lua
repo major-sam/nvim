@@ -18,14 +18,16 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
 if vim.fn.has('win32') then
-  vim.g.shell = (executable('pwsh.exe') and 'pwsh.exe' or 'powershell.exe')
-  vim.o.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command '
-  vim.o.shellquote = ''
-  vim.o.shellxquote = ''
+  vim.opt.shell = "pwsh"
+  vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+  vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
+  vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+  vim.opt.shellquote = ""
+  vim.opt.shellxquote = ""
   vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
   vim.g.NERDTreeCopyCmd = 'cp -r '
   vim.g.NERDTreeCopyDirCmd = 'cp -r '
-  vim.g.NERDTreeRemoveDirCmd = 'rm '
+  vim.g.NERDTreeRemoveDirCmd = 'remove-item -force -reсurse '
   vim.opt.mouse:append('a')
 elseif vim.fn.has('linux') then
   vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
