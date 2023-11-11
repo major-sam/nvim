@@ -3,22 +3,9 @@ vim.opt.guicursor = ""
 local os_name = ''
 vim.opt.nu = true
 vim.opt.relativenumber = true
-os_name = vim.loop.os_uname().sysname
-print(os_name)
-if (os_name == 'Windows_NT') then
-    vim.o.shell = "powershell.exe"
-    vim.o.shellcmdflag='-c'
-    vim.o.shellquote='"'
-    vim.o.shellxquote=''
-elseif (os_name == 'Linux') then
-    vim.opt.shell=bash
-else
-   -- Else default to the system current shell.
-   vim.opt.shell = os.getenv('SHELL')
-end
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
@@ -31,15 +18,26 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
 if vim.fn.has('win32') then
-    vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
-    vim.opt.mouse:append('a')
+  vim.opt.shell = "pwsh"
+  vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+  vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
+  vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+  vim.opt.shellquote = ""
+  vim.opt.shellxquote = ""
+  vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
+  vim.g.NERDTreeCopyCmd = 'cp -r '
+  vim.g.NERDTreeCopyDirCmd = 'cp -r '
+  vim.g.NERDTreeRemoveDirCmd = 'remove-item -force -reсurse '
+  vim.opt.mouse:append('a')
 elseif vim.fn.has('linux') then
-    vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-    vim.opt.undodir = os.getenv("TEMP") .. "/.vim/undodir"
-    vim.opt.mouse = vim.opt.mouse - 'a'
+  vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+  vim.opt.undodir = os.getenv("TEMP") .. "/.vim/undodir"
+  vim.opt.mouse = vim.opt.mouse - 'a'
+  vim.opt.shell=bash
 else
-    vim.opt.undodir = os.getenv("TEMP") .. "/.vim/undodir"
-    vim.opt.mouse = vim.opt.mouse - 'a'
+  vim.opt.undodir = os.getenv("TEMP") .. "/.vim/undodir"
+  vim.opt.mouse = vim.opt.mouse - 'a'
+  vim.opt.shell = os.getenv('SHELL')
 end
 vim.opt.guifont = "Space_Mono_Nerd_Font:h11"
 
@@ -58,23 +56,25 @@ vim.opt.colorcolumn = "80"
 vim.g.encoding = "utf-8"
 vim.g.nobomb = true
 vim.g.ls=2
-vim.g.netrw_keepdir = 0
-vim.g.netrw_liststyle = 3
-vim.g.netrw_winsize = 30
-vim.g.netrw_localcopydircmd = 'cp -r'
 
 vim.g.perl_host_prog  = 'c:/Strawberry/perl/bin/perl.exe'
 vim.g.python_host_prog  = 'c:/Python27/python.exe'
 vim.g.python3_host_prog  = 'c:/Python310/python.exe'
 vim.g.ruby_host_prog = 'C:/tools/ruby26/bin/ruby.exe'
+vim.g.loaded_node_provider = 0
+vim.g.loaded_perl_provider = 0
 
 vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols={
-    ['.*[jJ]enkins[fF]ile.*'] = '',
-    ['.*[dD]ocker[fF]ile.*'] = '' ,
+    ['.*[jJ]enkins[fF]ile[-_].*'] = '',
+    ['.*[jJ]enkins[fF]ile$'] = '',
+    ['.*[dD]ocker[fF]ile[-_].*'] = '' ,
+    ['.*[dD]ocker[fF]ile'] = '' ,
 }
 vim.g.NERDTreePatternMatchHighlightColor = {
-    ['.*[dD]ocker[fF]ile.*'] = "689FB6",
-    ['.*[jJ]enkins[fF]ile.*'] = "F5C06F"
+    ['.*[jJ]enkins[fF]ile[-_].*'] = "F5C06F",
+    ['.*[jJ]enkins[fF]ile$'] = "F5C06F",
+    ['.*[dD]ocker[fF]ile[-_].*'] = "689FB6",
+    ['.*[dD]ocker[fF]ile$'] = "689FB6",
 }
 vim.g.NERDTreeExtensionHighlightColor = {
     ['MD'] = "F5C06F"
@@ -85,6 +85,10 @@ vim.g.NERDTreePatternMatchHighlightFullName = 1
 
 vim.g.NERDTreeDirArrowExpandable = '+'
 vim.g.NERDTreeDirArrowCollapsible = ' '
+vim.g.nerdtree_vis_confirm_open = 0
+vim.g.nerdtree_vis_confirm_delete = 1
+vim.g.nerdtree_vis_confirm_copy = 0
+vim.g.nerdtree_vis_confirm_move = 0
 vim.g["airline#extensions#tabline#enabled"] = 1
 vim.g["airline#extensions#tabline#formatter"] = 'unique_tail_improved'
 vim.g["airline#extensions#tabline#formatter"] = 'unique_tail'
@@ -98,7 +102,6 @@ vim.opt.langmap ={
     "фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
 }
 
-vim.g.loaded_node_provider = 0
 vim.opt.list = true
 vim.opt.listchars = {
     tab='│·',
