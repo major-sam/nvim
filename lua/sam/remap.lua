@@ -49,6 +49,13 @@ vim.keymap.set("n", "<c-down>", "<c-w>-")
 vim.keymap.set("n", "<c-left>", "<c-w>>")
 vim.keymap.set("n", "<c-right>", "<c-w><")
 
+-- terminal mode quick switch
+vim.keymap.set('t', '<leader><esc>', '<C-\\><C-N>', {silent = true})
+vim.keymap.set('t', '<leader><l>',   '<C-\\><C-N><C-w>h', {silent = true})
+vim.keymap.set('t', '<leader><j>',   '<C-\\><C-N><C-w>j', {silent = true})
+vim.keymap.set('t', '<leader><k>',   '<C-\\><C-N><C-w>k', {silent = true})
+vim.keymap.set('t', '<leader><h>',   '<C-\\><C-N><C-w>l', {silent = true})
+-- git
 vim.keymap.set("n", "<F5>", function()
     vim.cmd("G stage *")
     vim.cmd("G commit ")
