@@ -5,11 +5,20 @@ autocmd({ "BufWritePre" }, {
 })
 autocmd({ "BufEnter" }, {
   pattern = { "*[jJ]enkins[fF]ile[-_]*" },
-  command = "set syntax=Jenkinsfile",
+  callback = function()
+    vim.cmd( "set syntax=Jenkinsfile")
+    require("jenkinsfile_linter").validate()
+  end
 })
 autocmd({ "BufEnter" }, {
   pattern = { "*[dD]ocker[fF]ile[-_]*" },
   command = "set filetype=dockerfile",
+})
+autocmd({ "BufWritePre" }, {
+  pattern = { "*[jJ]enkins[fF]ile[-_]*" },
+  callback = function()
+    require("jenkinsfile_linter").validate()
+  end
 })
 autocmd({ "BufEnter" }, {
   pattern = {

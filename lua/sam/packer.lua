@@ -58,7 +58,7 @@ return require('packer').startup(function(use)
   use 'vim-airline/vim-airline-themes'
   use 'airblade/vim-gitgutter'
   -- lsp
-  -- use({'ckipp01/nvim-jenkinsfile-linter', requires = { "nvim-lua/plenary.nvim" } })
+  use({'ckipp01/nvim-jenkinsfile-linter', requires = { "nvim-lua/plenary.nvim" } })
   use {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
