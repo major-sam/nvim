@@ -39,6 +39,16 @@ return require('packer').startup(function(use)
       local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
       ts_update()
     end,}
+-- noice
+  use {"folke/noice.nvim", tag = 'v2.0.0',
+    requires = {
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
+  }
   -- use("nvim-treesitter/playground")
   use("theprimeagen/harpoon")
   use("theprimeagen/refactoring.nvim")
@@ -95,6 +105,32 @@ return require('packer').startup(function(use)
   --  use 'pearofducks/ansible-vim'
   use 'martinda/Jenkinsfile-vim-syntax'
   use {'neoclide/coc.nvim', branch = 'release'}
+
+  use {
+    'numToStr/Comment.nvim',
+    config = function()
+      require('Comment').setup()
+    end
+  }
+  -- Lua
+  use {
+    "folke/which-key.nvim",
+    config = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+      require("which-key").setup {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      }
+    end
+  }
+  use "lukas-reineke/indent-blankline.nvim"
+  use "machakann/vim-highlightedyank"
+  use "RRethy/vim-illuminate"
+  use {
+    "m4xshen/hardtime.nvim",
+    require= { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+  }
+-- end
 end)
-
-

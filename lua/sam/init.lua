@@ -1,4 +1,5 @@
 require("sam.packer")
-require("sam.set")
+require("sam.global")
+require("sam.opt")
 require("sam.remap")
 require("sam.autocmd")
