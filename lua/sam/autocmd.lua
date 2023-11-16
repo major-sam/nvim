@@ -6,7 +6,9 @@ autocmd({ "BufWritePre" }, {
 autocmd({ "BufEnter" }, {
   pattern = { "*[jJ]enkins[fF]ile[-_]*" },
   callback = function()
-    vim.cmd( "set syntax=Jenkinsfile")
+    vim.cmd("set syntax=Jenkinsfile")
+    vim.cmd("setlocal noexpandtab")
+    vim.cmd("setlocal tabstop=3")
     require("jenkinsfile_linter").validate()
   end
 })
