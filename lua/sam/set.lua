@@ -84,7 +84,7 @@ vim.g.NERDTreeExactMatchHighlightFullName = 1
 vim.g.NERDTreePatternMatchHighlightFullName = 1
 
 vim.g.NERDTreeDirArrowExpandable = '+'
-vim.g.NERDTreeDirArrowCollapsible = ' '
+vim.g.NERDTreeDirArrowCollapsible = '►'
 vim.g.nerdtree_vis_confirm_open = 0
 vim.g.nerdtree_vis_confirm_delete = 1
 vim.g.nerdtree_vis_confirm_copy = 0
