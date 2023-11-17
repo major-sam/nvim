@@ -64,8 +64,10 @@ return require('packer').startup(function(use)
   use 'scrooloose/nerdtree'
   use 'tiagofumo/vim-nerdtree-syntax-highlight'
   use "philrunninger/nerdtree-visual-selection"
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+  }
   use 'airblade/vim-gitgutter'
   -- lsp
   use({'ckipp01/nvim-jenkinsfile-linter', requires = { "nvim-lua/plenary.nvim" } })
@@ -132,5 +134,6 @@ return require('packer').startup(function(use)
     "m4xshen/hardtime.nvim",
     require= { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
   }
+  use "xiyaowong/transparent.nvim"
 -- end
 end)
