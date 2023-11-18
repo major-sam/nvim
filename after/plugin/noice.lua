@@ -18,6 +18,8 @@ require("noice").setup({
 })
 require("notify").setup({
   timeout = 10,
-  max_width = 30,
+  max_width = 35,
+  max_height = 7,
   background_colour = "#000000",
+  render = "wrapped-compact"
 })
