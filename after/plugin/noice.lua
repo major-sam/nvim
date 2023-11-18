@@ -17,5 +17,7 @@ require("noice").setup({
   },
 })
 require("notify").setup({
+  timeout = 10,
+  max_width = 30,
   background_colour = "#000000",
 })
