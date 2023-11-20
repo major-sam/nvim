@@ -134,6 +134,12 @@ return require('packer').startup(function(use)
     "m4xshen/hardtime.nvim",
     require= { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
   }
+  use {
+    "folke/todo-comments.nvim", require = {
+      "nvim-lua/plenary.nvim"
+    }
+  }
   use "xiyaowong/transparent.nvim"
 -- end
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
 end)
