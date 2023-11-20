@@ -1,5 +1,4 @@
 vim.opt.guicursor = ""
-local os_name = ''
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
