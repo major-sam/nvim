@@ -47,4 +47,4 @@ vim.g.airline_powerline_fonts = 1
 vim.g.WebDevIconsDisableDefaultFolderSymbolColorFromNERDTreeDir = 1
 vim.g.WebDevIconsDisableDefaultFileSymbolColorFromNERDTreeFile = 1
 
-
+ vim.cmd("set mouse=a")

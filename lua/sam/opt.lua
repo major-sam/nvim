@@ -1,4 +1,4 @@
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
@@ -16,6 +16,7 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
 if vim.fn.has('win32') == 1 then
+  print('windows')
   vim.opt.shell = "pwsh"
   vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
   vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
@@ -23,18 +24,17 @@ if vim.fn.has('win32') == 1 then
   vim.opt.shellquote = ""
   vim.opt.shellxquote = ""
   vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
---  vim.g.NERDTreeCopyCmd = 'cp -r '
---  vim.g.NERDTreeCopyDirCmd = 'cp -r '
---  vim.g.NERDTreeRemoveDirCmd = 'remove-item -force -reсurse '
-  vim.opt.mouse:append('a')
+  --  vim.g.NERDTreeCopyCmd = 'cp -r '
+  --  vim.g.NERDTreeCopyDirCmd = 'cp -r '
+  --  vim.g.NERDTreeRemoveDirCmd = 'remove-item -force -reсurse '
 elseif vim.fn.has('linux') == 1 then
-  vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+
+  print('linux')
   vim.opt.undodir = os.getenv("TEMP") .. "/.vim/undodir"
-  vim.opt.mouse = vim.opt.mouse - 'a'
   vim.opt.shell=bash
 else
+  print('other')
   vim.opt.undodir = os.getenv("TEMP") .. "/.vim/undodir"
-  vim.opt.mouse = vim.opt.mouse - 'a'
   vim.opt.shell = os.getenv('SHELL')
 end
 vim.opt.guifont = "Space_Mono_Nerd_Font:h11"
@@ -49,7 +49,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "84"
 
 vim.opt.langmap ={
     "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -65,4 +65,7 @@ vim.opt.listchars = {
     extends='›',
     precedes='‹'
 }
+
+vim.opt.mouse="a"
+vim.o.mouse="a"
 

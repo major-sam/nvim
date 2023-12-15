@@ -8,7 +8,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   -- Basic
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.4',
+    'nvim-telescope/telescope.nvim', tag = '0.1.5',
     -- or                            , branch = '0.1.x',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
@@ -40,7 +40,7 @@ return require('packer').startup(function(use)
       ts_update()
     end,}
 -- noice
-  use {"folke/noice.nvim", tag = 'v2.0.0',
+  use {"folke/noice.nvim", tag = 'v1.16.3',
     requires = {
       "MunifTanjim/nui.nvim",
       -- OPTIONAL:
