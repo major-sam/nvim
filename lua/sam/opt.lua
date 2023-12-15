@@ -66,6 +66,3 @@ vim.opt.listchars = {
     precedes='‹'
 }
 
-vim.opt.mouse="a"
-vim.o.mouse="a"
-
