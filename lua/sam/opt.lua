@@ -1,5 +1,4 @@
-vim.opt.guicursor = ""
-local os_name = ''
+-- vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
@@ -25,10 +24,6 @@ if vim.loop.os_uname().sysname == 'Windows_NT' then
   vim.opt.shellquote = ""
   vim.opt.shellxquote = ""
   vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
---  vim.g.NERDTreeCopyCmd = 'cp -r '
---  vim.g.NERDTreeCopyDirCmd = 'cp -r '
---  vim.g.NERDTreeRemoveDirCmd = 'remove-item -force -reсurse '
-  vim.opt.mouse:append('a')
 else
   vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
   vim.opt.shell = os.getenv('SHELL')
@@ -45,7 +40,7 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "80"
+vim.opt.colorcolumn = "84"
 
 vim.opt.langmap ={
     "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ",
