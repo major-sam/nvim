@@ -2,7 +2,7 @@ vim.g.mapleader = " "
 if vim.fn.has('win32') then
   vim.g.NERDTreeCopyCmd = 'cp -r '
   vim.g.NERDTreeCopyDirCmd = 'cp -r '
-  vim.g.NERDTreeRemoveDirCmd = 'remove-item -force -reсurse '
+  vim.g.NERDTreeRemoveDirCmd = 'rm -r '
 end
 vim.g.encoding = "utf-8"
 vim.g.nobomb = true
