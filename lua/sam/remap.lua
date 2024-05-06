@@ -65,7 +65,7 @@ end)
 vim.keymap.set("n", "<C-F6>", function()
     vim.cmd("G stage *")
     vim.cmd("G commit --amend --no-edit")
-    vim.cmd("G push --force ")
+    vim.cmd("G push  --force-with-lease")
 end)
 
 
