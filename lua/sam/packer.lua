@@ -103,8 +103,6 @@ return require('packer').startup(function(use)
       "cespare/vim-toml",             -- for Neovim ⩽ 0.6.0
     }
   }
-  --  use 'mfussenegger/nvim-ansible'
-  --  use 'pearofducks/ansible-vim'
   use 'martinda/Jenkinsfile-vim-syntax'
   use {'neoclide/coc.nvim', branch = 'release'}
 
@@ -127,7 +125,12 @@ return require('packer').startup(function(use)
       }
     end
   }
-  use "lukas-reineke/indent-blankline.nvim"
+  use {
+   "lukas-reineke/indent-blankline.nvim",
+    config = function()
+      require("ibl").setup()
+    end
+  }
   use "machakann/vim-highlightedyank"
   use "RRethy/vim-illuminate"
   use {
