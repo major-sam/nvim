@@ -1,5 +1,5 @@
-vim.keymap.set("n", "<leader>pv", vim.cmd.NERDTreeToggle)
-vim.keymap.set("n", "<F3>", vim.cmd.NERDTreeToggle)
+vim.keymap.set("n", "<leader>pv",'<Cmd>Neotree toggle<CR>' )
+vim.keymap.set("n", "<F3>", '<Cmd>Neotree toggle<CR>')
 
 vim.keymap.set("n", "<F2>", vim.cmd.TaskList)
 

@@ -42,10 +42,6 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "84"
 
-vim.opt.langmap ={
-    "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    "фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
-}
 
 vim.opt.list = true
 vim.opt.listchars = {
