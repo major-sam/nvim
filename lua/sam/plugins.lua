@@ -37,7 +37,10 @@ require("lazy").setup({
   },
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" }
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      { "abeldekat/harpoonline", version = "*" },
+    }
   },
   {
     "folke/twilight.nvim",

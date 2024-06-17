@@ -1,5 +1,9 @@
+local Harpoonline = require("harpoonline")
+Harpoonline.setup({
+  on_update = function() require("lualine").refresh() end,
+})
 require('lualine').setup{
-    options = {
+  options = {
     icons_enabled = true,
     theme = 'tokyonight',
     component_separators = { left = '', right = ''},
@@ -21,6 +25,7 @@ require('lualine').setup{
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {
+      Harpoonline.format,
       {
         'filename',
         file_status = true,      -- Displays file status (readonly status, modified status)
