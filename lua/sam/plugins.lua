@@ -93,7 +93,7 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    tag = "v0.9.2",
+    lazy = false
     config = function ()
       local configs = require("nvim-treesitter.configs")
 
@@ -242,6 +242,5 @@ require("lazy").setup({
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    opts = { },
   },
 })

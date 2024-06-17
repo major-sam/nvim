@@ -7,15 +7,6 @@ require("obsidian").setup({
     },
   },
 
-  -- workspaces = {
-  --   {
-  --     name = "buf-parent",
-  --     path = function()
-  --       return assert(vim.fs.dirname(vim.api.nvim_buf_get_name(0)))
-  --     end,
-  --   },
-  -- },
-
   completion = {
     nvim_cmp = true,
     min_chars = 2,
