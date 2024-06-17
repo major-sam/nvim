@@ -11,16 +11,6 @@ vim.g.ruby_host_prog = 'C:/tools/ruby26/bin/ruby.exe'
 vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
--- vim.g.WebDevIconsUnicodeDecorateFileNodesPatternSymbols={
---     ['.*[jJ]enkins[fF]ile[-_].*'] = '',
---     ['.*[jJ]enkins[fF]ile$'] = '',
---     ['.*[dD]ocker[fF]ile[-_].*'] = '' ,
---     ['.*[dD]ocker[fF]ile'] = '' ,
--- }
-vim.g["airline#extensions#tabline#enabled"] = 1
-vim.g["airline#extensions#tabline#formatter"] = 'unique_tail_improved'
-vim.g["airline#extensions#tabline#formatter"] = 'unique_tail'
-vim.g.airline_powerline_fonts = 1
 vim.g.fugitive_bitbucketservers_domains = {'https://bitbucket.baltbet.ru:8445'}
 
 vim.cmd("set mouse=a")

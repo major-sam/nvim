@@ -93,7 +93,7 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    lazy = false
+    lazy = false,
     config = function ()
       local configs = require("nvim-treesitter.configs")
 
@@ -223,13 +223,6 @@ require("lazy").setup({
     }
   },
   "laytan/cloak.nvim",
-  {
-    "akinsho/bufferline.nvim",
-    version = "*",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons"
-    }
-  },
   -- Obsidian
   {
     "epwalsh/obsidian.nvim",
