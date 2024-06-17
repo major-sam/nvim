@@ -210,8 +210,8 @@ require("lazy").setup({
   "martinda/Jenkinsfile-vim-syntax",
   "numToStr/Comment.nvim",
   -- Lua
-  "lukas-reineke/indent-blankline.nvim",
   "machakann/vim-highlightedyank",
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   {
     "m4xshen/hardtime.nvim",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
@@ -226,6 +226,22 @@ require("lazy").setup({
   {
     "akinsho/bufferline.nvim",
     version = "*",
-    dependencies = {"nvim-tree/nvim-web-devicons"}
+    dependencies = {
+      "nvim-tree/nvim-web-devicons"
+    }
+  },
+  -- Obsidian
+  {
+    "epwalsh/obsidian.nvim",
+    tag = "v3.7.14",
+    lazy = true,
+    event = {
+      "BufReadPre " .. vim.fn.expand "~" .. "/obsidian/*/**.md",
+      "BufNewFile " .. vim.fn.expand "~" .. "/obsidian/*/**.md",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = { },
   },
 })
