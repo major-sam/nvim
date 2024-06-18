@@ -2,6 +2,10 @@ require("obsidian").setup({
 
   workspaces = {
     {
+      name = "vault-home",
+      path =  "~/obsidian/vault-home/"
+    },
+    {
       name = "vault1",
       path =  "~/obsidian/vault1/"
     },
