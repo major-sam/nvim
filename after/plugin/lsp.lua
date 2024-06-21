@@ -19,8 +19,18 @@ lsp_zero.on_attach(
 local cmp = require('cmp')
 
 cmp.setup({
-  sources = {
-    {name = 'nvim_lsp'},
+  sources = cmp.config.sources({
+    { name = 'path' },
+    { name = 'nvim_lsp' },
+    -- { name = 'vsnip' }, -- For vsnip users.
+    { name = 'luasnip' }, -- For luasnip users.
+    -- { name = 'ultisnips' }, -- For ultisnips users.
+    -- { name = 'snippy' }, -- For snippy users.
+  }, { { name = 'buffer' }, }),
+
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   mapping = {
     ['<C-y>'] = cmp.mapping.confirm({select = false}),
@@ -53,4 +63,27 @@ lsp_zero.set_sign_icons({
   warn = '▲',
   hint = '⚑',
   info = ''
+})
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'git' },
+  }, {
+      { name = 'buffer' },
+    })
+})
+require("cmp_git").setup()
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+      { name = 'cmdline' }
+    }),
+  matching = { disallow_symbol_nonprefix_matching = false }
 })
