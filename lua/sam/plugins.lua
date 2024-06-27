@@ -2,6 +2,7 @@ require("lazy").setup({
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
+  "jeetsukumaran/vim-indentwise",
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
@@ -117,6 +118,7 @@ require("lazy").setup({
   {
     "folke/noice.nvim",
     event = "VeryLazy",
+	tag = "v4.2.2",
     opts = {
       -- add any options here
     },
@@ -166,7 +168,6 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
       "MunifTanjim/nui.nvim",
-      "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
     },
     config = function ()
       -- If you want icons for diagnostic errors, you"ll need to define them somewhere:
@@ -201,6 +202,7 @@ require("lazy").setup({
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
       "L3MON4D3/LuaSnip",
+      "ray-x/cmp-treesitter",
     },
   },
 

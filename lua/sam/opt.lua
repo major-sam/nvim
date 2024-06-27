@@ -8,7 +8,7 @@ vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 vim.opt.smartindent = true
-
+vim.opt.cmdheight = 1
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
