@@ -1,3 +1,4 @@
+local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 require("mason").setup({
   PATH = "append",
   ui = {
@@ -9,6 +10,11 @@ require("mason").setup({
   }
 })
 
+local default_setup = function(server)
+  require('lspconfig')[server].setup({
+    capabilities = lsp_capabilities,
+  })
+end
 require("mason-lspconfig").setup({
   ensure_installed = {
     "lua_ls",
@@ -28,8 +34,29 @@ require("mason-lspconfig").setup({
     "pylsp" },
   automatic_installation = true,
   handlers = {
-    function(server_name)
-      require("lspconfig")[server_name].setup({})
+    default_setup,
+    lua_ls = function()
+      require('lspconfig').lua_ls.setup({
+        capabilities = lsp_capabilities,
+        settings = {
+          Lua = {
+            runtime = {
+              version = 'LuaJIT'
+            },
+            diagnostics = {
+              globals = {
+                'vim',
+                'use',
+              },
+            },
+            workspace = {
+              library = {
+                vim.env.VIMRUNTIME,
+              }
+            }
+          }
+        }
+      })
     end,
   },
 })

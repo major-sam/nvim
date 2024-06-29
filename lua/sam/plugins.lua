@@ -15,7 +15,7 @@ require("lazy").setup({
     priority = 1000,
     config = function()
       require'nvim-web-devicons'.setup {
-         default = true;
+        default = true;
         strict = true;
         override_by_filename = {
           ["Dockerfile"] = { icon = "", color = "#0034c3", cterm_color = "4", name = "Docker" },
@@ -181,10 +181,6 @@ require("lazy").setup({
       vim.fn.sign_define("DiagnosticSignHint",
         {text = "󰌵", texthl = "DiagnosticSignHint"})
     end
-  },
-  {
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v3.x",
   },
   -- LSP Support
   "neovim/nvim-lspconfig",

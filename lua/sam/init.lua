@@ -1,4 +1,4 @@
-require("sam.lazy")
+require("sam.lazy_install")
 require("sam.global")
 require("sam.opt")
 require("sam.plugins")
