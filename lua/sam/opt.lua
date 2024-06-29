@@ -4,12 +4,11 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldenable = false
 vim.opt.smartindent = true
-
+vim.opt.cmdheight = 1
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
@@ -40,13 +39,15 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
-vim.opt.colorcolumn = "84"
+vim.opt.colorcolumn = "80"
 
-
+vim.opt.conceallevel = 2
 vim.opt.list = true
+
+vim.opt.expandtab = true
 vim.opt.listchars = {
-    tab='│·',
-    space='·',
+    tab='| ',
+    space=' ',
     nbsp='·',
     trail="~",
     extends='›',

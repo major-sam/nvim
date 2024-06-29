@@ -1,10 +1,8 @@
 require("lazy").setup({
---  "folke/which-key.nvim",
---  { "folke/neoconf.nvim", cmd = "Neoconf" },
---  "folke/neodev.nvim",
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
+  "jeetsukumaran/vim-indentwise",
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
@@ -37,15 +35,14 @@ require("lazy").setup({
   },
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" }
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      { "abeldekat/harpoonline", version = "*" },
+    }
   },
   {
     "folke/twilight.nvim",
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-      -- refer to the configuration section below
-    }
+    opts = { }
   },
   {
     "folke/trouble.nvim",
@@ -93,7 +90,7 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
-    tag = "v0.9.2",
+    lazy = false,
     config = function ()
       local configs = require("nvim-treesitter.configs")
 
@@ -121,6 +118,7 @@ require("lazy").setup({
   {
     "folke/noice.nvim",
     event = "VeryLazy",
+	tag = "v4.2.2",
     opts = {
       -- add any options here
     },
@@ -194,24 +192,31 @@ require("lazy").setup({
   "williamboman/mason-lspconfig.nvim",
 
   -- Autocompletion
-  "hrsh7th/nvim-cmp",
-  "hrsh7th/cmp-buffer",
-  "hrsh7th/cmp-path",
-  "saadparwaiz1/cmp_luasnip",
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-nvim-lua",
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "saadparwaiz1/cmp_luasnip",
+      "petertriho/cmp-git",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
+      "L3MON4D3/LuaSnip",
+      "ray-x/cmp-treesitter",
+    },
+  },
 
   -- Snippets
   "L3MON4D3/LuaSnip",
-  "rafamadriz/friendly-snippets",
   -- Fun
   "eandrju/cellular-automaton.nvim",
   -- syntax
   "martinda/Jenkinsfile-vim-syntax",
   "numToStr/Comment.nvim",
   -- Lua
-  "lukas-reineke/indent-blankline.nvim",
   "machakann/vim-highlightedyank",
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
   {
     "m4xshen/hardtime.nvim",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
@@ -223,9 +228,17 @@ require("lazy").setup({
     }
   },
   "laytan/cloak.nvim",
+  -- Obsidian
   {
-    "akinsho/bufferline.nvim",
-    version = "*",
-    dependencies = {"nvim-tree/nvim-web-devicons"}
+    "epwalsh/obsidian.nvim",
+    tag = "v3.7.14",
+    lazy = true,
+    event = {
+      "BufReadPre " .. vim.fn.expand "~" .. "/obsidian/*/**.md",
+      "BufNewFile " .. vim.fn.expand "~" .. "/obsidian/*/**.md",
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
   },
 })
