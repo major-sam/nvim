@@ -61,7 +61,7 @@ vim.keymap.set("n", "<F5>", function()
 end)
 
 vim.keymap.set("n", "<F6>", function()
-    vim.cmd("G push")
+    vim.cmd("G push --no-force-with-lease")
 end)
 vim.keymap.set("n", "<C-F6>", function()
     vim.cmd("G stage *")
