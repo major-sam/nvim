@@ -1,6 +1,7 @@
 -- vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
+vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
@@ -44,7 +45,6 @@ vim.opt.colorcolumn = "80"
 vim.opt.conceallevel = 2
 vim.opt.list = true
 
-vim.opt.expandtab = true
 vim.opt.listchars = {
     tab='| ',
     space=' ',
