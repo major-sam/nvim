@@ -118,7 +118,7 @@ require("lazy").setup({
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-	tag = "v4.2.2",
+	tag = "v4.9.0",
     opts = {
       -- add any options here
     },
@@ -191,14 +191,14 @@ require("lazy").setup({
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
-      "hrsh7th/cmp-cmdline",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "saadparwaiz1/cmp_luasnip",
-      "petertriho/cmp-git",
       "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-path",
       "hrsh7th/cmp-nvim-lua",
       "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip",
+      "petertriho/cmp-git",
       "ray-x/cmp-treesitter",
     },
   },
@@ -227,7 +227,7 @@ require("lazy").setup({
   -- Obsidian
   {
     "epwalsh/obsidian.nvim",
-    tag = "v3.7.14",
+    tag = "v3.9.0",
     lazy = true,
     event = {
       "BufReadPre " .. vim.fn.expand "~" .. "/obsidian/*/**.md",
@@ -235,6 +235,12 @@ require("lazy").setup({
     },
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "hrsh7th/nvim-cmp",
+      "nvim-telescope/telescope.nvim",
+      "nvim-treesitter"
+    },
+    keys = {
+      { "<leader>on","ve<cmd>ObsidianLinkNew<CR>",mode = 'n',desc = "Create new Obsidian link"},
     },
   },
 })
