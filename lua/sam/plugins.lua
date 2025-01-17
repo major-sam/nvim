@@ -240,7 +240,8 @@ require("lazy").setup({
       "nvim-treesitter"
     },
     keys = {
-      { "<leader>on","ve<cmd>ObsidianLinkNew<CR>",mode = 'n',desc = "Create new Obsidian link"},
+      { "<leader>on","viw<cmd>ObsidianLinkNew<CR>",mode = 'n',desc = "Create new Obsidian link"},
+      { "<leader>on","<cmd>ObsidianLinkNew<CR>",mode = 'v',desc = "Create new Obsidian link"},
     },
   },
 })
