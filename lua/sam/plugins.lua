@@ -4,6 +4,33 @@ require("lazy").setup({
   "neovim/nvim-lspconfig",
   "jeetsukumaran/vim-indentwise",
   {
+    "voldikss/vim-translator",
+    config = function()
+      vim.g.translator_target_lang = "ru";
+      vim.g.translator_default_engines = {'bing', 'google'};
+    end,
+    keys = {
+      {
+        "<leader>t",
+        "<cmd>Translate<cr>",
+        mode = { "n", "v" },
+        desc = "Translate",
+      },
+      {
+        "<leader>tr",
+        "<cmd>TranslateR<cr>",
+        mode = { "n", "v" },
+        desc = "Replace text with Translate",
+      },
+      {
+        "<leader>tw",
+        "<cmd>TranslateW<cr>",
+        mode = { "n", "v" },
+        desc = "Translate in window",
+      },
+    },
+  },
+  {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.5",
     dependencies =  {

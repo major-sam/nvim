@@ -131,7 +131,6 @@ require("obsidian").setup({
     end
 
     local out = { id = tostring(os.date("%Y-%m-%d")) , aliases = note.aliases, tags = note.tags }
-
     -- `note.metadata` contains any manually added fields in the frontmatter.
     -- So here we just make sure those fields are kept in the frontmatter.
     if note.metadata ~= nil and not vim.tbl_isempty(note.metadata) then
