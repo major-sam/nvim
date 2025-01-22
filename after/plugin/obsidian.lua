@@ -130,6 +130,9 @@ require("obsidian").setup({
       note:add_alias(note.title)
     end
 
+    local notePath = vim.fn.expand('%:h')
+    local parentDir = vim.fs.basename(notePath)
+    note:add_tag(parentDir)
     local out = { id = tostring(os.date("%Y-%m-%d")) , aliases = note.aliases, tags = note.tags }
     -- `note.metadata` contains any manually added fields in the frontmatter.
     -- So here we just make sure those fields are kept in the frontmatter.
