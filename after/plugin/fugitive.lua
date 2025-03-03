@@ -3,7 +3,7 @@ vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 local ThePrimeagen_Fugitive = vim.api.nvim_create_augroup("ThePrimeagen_Fugitive", {})
 
 vim.keymap.set("n", "<leader>P", function()
-    vim.cmd.Git({'pull',  '--rebase'})
+    vim.cmd.Git({'pull --rebase'})
 end, opts)
 
 -- NOTE: It allows me to easily set the branch i am pushing and any tracking
@@ -15,12 +15,12 @@ vim.keymap.set("n", "<F5>", function()
 end)
 
 vim.keymap.set("n", "<F6>", function()
-    vim.cmd.Git({"push","--no-force-with-lease"})
+    vim.cmd.Git('push --no-force-with-lease')
 end)
 vim.keymap.set("n", "<C-F6>", function()
-    vim.cmd.Git({"stage", "*"})
-    vim.cmd.Git({"commit","--amend","--no-edit"})
-    vim.cmd.Git({"push","--force-with-lease"})
+    vim.cmd.Git('stage *')
+    vim.cmd.Git('commit --amend --no-edit')
+    vim.cmd.Git('push --force-with-lease')
 end)
 
 if vim.fn.has('linux') then
