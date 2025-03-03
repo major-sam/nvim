@@ -162,6 +162,7 @@ require("lazy").setup({
   },
   "mbbill/undotree",
   "tpope/vim-fugitive",
+  "jecaro/fugitive-difftool.nvim",
   "tpope/vim-rhubarb",
   "borissov/fugitive-bitbucketserver",
   "nvim-treesitter/nvim-treesitter-context",
