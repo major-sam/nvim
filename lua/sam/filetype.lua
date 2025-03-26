@@ -12,7 +12,7 @@ vim.filetype.add {
   },
   pattern = {
     [ '[dD]ocker[fF]ile[-_].*' ] = 'dockerfile',
-    [ '[jJ]enkins[fF]ile[-_].*' ] = 'groovy',
+    [ '[jJ]enkins[fF]ile[-_].*' ] = 'Jenkinsfile',
     [ 'main/.ya?ml' ] = 'yaml.ansible'
   },
 }
