@@ -10,11 +10,6 @@ require("noice").setup({
       ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
     },
   },
-  local filter = {
-    event = "msg_show",
-    min_height = 10,
-    ["not"] = { kind = { "search_count", "echo" } },
-  },
   -- you can enable a preset for easier configuration
   presets = {
     bottom_search = false, -- use a classic bottom cmdline for search
