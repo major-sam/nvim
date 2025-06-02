@@ -1,4 +1,28 @@
+local fb_actions = require "telescope._extensions.file_browser.actions"
 local builtin = require('telescope.builtin')
+require("telescope").setup {
+  extensions = {
+    file_browser = {
+      theme = "ivy",
+      grouped = true,
+      initial_mode = "normal",
+      -- disables netrw and use telescope-file-browser in its place
+      hijack_netrw = true,
+      display_stat = { date = true, size = true, mode = false },
+      collapse_dirs = true,
+      prompt_path = true,
+      auto_depth = 2,
+      mappings = {
+         ["i"] = {
+           ["C-."] = fb_actions.change_cwd,
+         },
+         ["n"] = {
+           ["."] = fb_actions.change_cwd,
+         },
+       },
+    },
+  }
+}
 
 
 require("telescope").load_extension("file_browser")

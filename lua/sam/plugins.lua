@@ -36,6 +36,12 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim" }
   },
   {
+    'andrew-george/telescope-themes',
+    config = function()
+        require('telescope').load_extension('themes')
+    end
+  },
+  {
     'nvim-tree/nvim-web-devicons',
     priority = 1000,
     config = function()

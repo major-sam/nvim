@@ -1,6 +1,3 @@
-vim.keymap.set("n", "<leader>pv",'<Cmd>Neotree toggle<CR>' )
-vim.keymap.set("n", "<F3>", '<Cmd>Neotree toggle<CR>')
-
 vim.keymap.set("n", "<F2>", vim.cmd.TaskList)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
@@ -53,21 +50,6 @@ vim.keymap.set('t', '<leader><l>',   '<C-\\><C-N><C-w>h', {silent = true})
 vim.keymap.set('t', '<leader><j>',   '<C-\\><C-N><C-w>j', {silent = true})
 vim.keymap.set('t', '<leader><k>',   '<C-\\><C-N><C-w>k', {silent = true})
 vim.keymap.set('t', '<leader><h>',   '<C-\\><C-N><C-w>l', {silent = true})
-
----- git
---vim.keymap.set("n", "<F5>", function()
---    vim.cmd("G stage *")
---    vim.cmd("G commit ")
---end)
---
---vim.keymap.set("n", "<F6>", function()
---    vim.cmd("G push --no-force-with-lease")
---end)
---vim.keymap.set("n", "<C-F6>", function()
---    vim.cmd("G stage *")
---    vim.cmd("G commit --amend --no-edit")
---    vim.cmd("G push  --force-with-lease")
---end)
 
 
 if vim.fn.has('linux') then
