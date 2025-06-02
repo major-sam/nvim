@@ -28,6 +28,7 @@ require("telescope").setup {
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("yaml_schema")
 require('telescope').load_extension('nerdy')
+require('telescope').load_extension('themes')
 
 vim.keymap.set('n', '<leader>fs', builtin.find_files, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
