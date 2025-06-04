@@ -36,6 +36,13 @@ require("lazy").setup({
       "nvim-lua/plenary.nvim" }
   },
   {
+    'stevearc/quicker.nvim',
+    event = "FileType qf",
+    ---@module "quicker"
+    ---@type quicker.SetupOptions
+    opts = {},
+},
+  {
     'andrew-george/telescope-themes',
     config = function()
         require('telescope').load_extension('themes')
@@ -244,9 +251,10 @@ require("lazy").setup({
 
   -- Snippets
   "L3MON4D3/LuaSnip",
-  -- Fun
+  -- HACK
   "eandrju/cellular-automaton.nvim",
   -- syntax
+  -- WARN some varn
   "martinda/Jenkinsfile-vim-syntax",
   "numToStr/Comment.nvim",
   -- Lua

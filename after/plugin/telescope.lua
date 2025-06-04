@@ -1,6 +1,18 @@
 local fb_actions = require "telescope._extensions.file_browser.actions"
 local builtin = require('telescope.builtin')
+local actions = require('telescope.actions')
 require("telescope").setup {
+  defaults = {
+    mappings = {
+      i = {
+        ["<c-d>"] = actions.delete_buffer,
+      },
+      n = {
+        ["<c-d>"] = actions.delete_buffer,
+        ["dd"] = actions.delete_buffer,
+      },
+    },
+  },
   extensions = {
     file_browser = {
       theme = "ivy",
@@ -13,17 +25,16 @@ require("telescope").setup {
       prompt_path = true,
       auto_depth = 2,
       mappings = {
-         ["i"] = {
-           ["C-."] = fb_actions.change_cwd,
-         },
-         ["n"] = {
-           ["."] = fb_actions.change_cwd,
-         },
-       },
+        ["i"] = {
+          ["C-."] = fb_actions.change_cwd,
+        },
+        ["n"] = {
+          ["."] = fb_actions.change_cwd,
+        },
+      },
     },
   }
 }
-
 
 require("telescope").load_extension("file_browser")
 require("telescope").load_extension("yaml_schema")
