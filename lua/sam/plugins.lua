@@ -159,7 +159,7 @@ require("lazy").setup({
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-	tag = "v4.9.0",
+	tag = "v4.10.0",
     opts = {
       -- add any options here
     },
@@ -219,6 +219,8 @@ require("lazy").setup({
       -- fill any relevant options here
     },
   },
+  "PhilRunninger/nerdtree-buffer-ops",
+  "PhilRunninger/nerdtree-visual-selection",
   --{
   --  "nvim-telescope/telescope-file-browser.nvim",
   --  dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
