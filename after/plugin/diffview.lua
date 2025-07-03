@@ -1,6 +1,10 @@
 -- Lua
 local actions = require("diffview.actions")
 
+vim.keymap.set("n", "<leader>dvo", vim.cmd.DiffviewOpen)
+vim.keymap.set("n", "<leader>dvc", vim.cmd.DiffviewClose)
+vim.keymap.set("n", "<leader>dvf", vim.cmd.DiffviewFileHistory)
+vim.keymap.set("n", "<leader>dvt", vim.cmd.DiffviewToggleFiles)
 require("diffview").setup({
   diff_binaries = false,    -- Show diffs for binaries
   enhanced_diff_hl = false, -- See |diffview-config-enhanced_diff_hl|
