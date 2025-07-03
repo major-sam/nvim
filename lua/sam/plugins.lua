@@ -271,8 +271,6 @@ require("lazy").setup({
     }
   },
   "laytan/cloak.nvim",
-  "PhilRunninger/nerdtree-buffer-ops",
-  "PhilRunninger/nerdtree-visual-selection",
   -- Obsidian
   {
     "epwalsh/obsidian.nvim",
