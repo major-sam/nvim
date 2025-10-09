@@ -70,9 +70,15 @@ require("lazy").setup({
     '2kabhishek/nerdy.nvim',
     dependencies = {
         'stevearc/dressing.nvim',
+        'folke/snacks.nvim',
         'nvim-telescope/telescope.nvim',
     },
     cmd = 'Nerdy',
+    opts = {
+        max_recents = 30, -- Configure recent icons limit
+        add_default_keybindings = true, -- Add default keybindings
+        copy_to_clipboard = false, -- Copy glyph to clipboard instead of inserting
+    }
   },
   {
     "nvim-lualine/lualine.nvim",
@@ -131,6 +137,7 @@ require("lazy").setup({
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
+    branch = 'master',
     lazy = false,
     config = function ()
       local configs = require("nvim-treesitter.configs")
