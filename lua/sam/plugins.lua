@@ -68,6 +68,7 @@ require("lazy").setup({
   "lewis6991/gitsigns.nvim",
   {
     '2kabhishek/nerdy.nvim',
+	tag = "1.6",
     dependencies = {
         'stevearc/dressing.nvim',
         'folke/snacks.nvim',
@@ -84,7 +85,6 @@ require("lazy").setup({
     "nvim-lualine/lualine.nvim",
     dependencies = {
       "nvim-tree/nvim-web-devicons",
-      { "abeldekat/harpoonline", version = "*" },
     }
   },
   {
@@ -175,11 +175,6 @@ require("lazy").setup({
       "nvim-notify",
       "rcarriga/nvim-notify",
     }
-  },
-  {
-    "ThePrimeagen/harpoon",
-    branch = "harpoon2",
-    dependencies = { "nvim-lua/plenary.nvim" }
   },
   "mbbill/undotree",
   "tpope/vim-fugitive",
@@ -274,8 +269,6 @@ require("lazy").setup({
     },
   },
 
-  -- Snippets
-  "L3MON4D3/LuaSnip",
   -- HACK
   "eandrju/cellular-automaton.nvim",
   -- syntax
