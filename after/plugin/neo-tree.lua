@@ -270,5 +270,5 @@ require("neo-tree").setup({
     }
   }
 })
-vim.keymap.set("n", "<F3>", ":Neotree position=float toggle=true <CR>")
-vim.keymap.set("n", "<leader>fb", ":Neotree position=float toggle=true <CR>")
+vim.keymap.set("n", "<F3>", ":Neotree position=left toggle=true <CR>")
+vim.keymap.set("n", "<leader>fb", ":Neotree position=left toggle=true <CR>")
