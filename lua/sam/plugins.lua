@@ -29,24 +29,24 @@ require("lazy").setup({
     },
   },
   {
-    "nvim-telescope/telescope.nvim",
-    tag = "0.2.1",
-    dependencies =  {
-      "someone-stole-my-name/yaml-companion.nvim",
-      "nvim-lua/plenary.nvim" }
-  },
-  {
     'stevearc/quicker.nvim',
     event = "FileType qf",
     ---@module "quicker"
     ---@type quicker.SetupOptions
     opts = {},
-},
+  },
   {
     'andrew-george/telescope-themes',
     config = function()
         require('telescope').load_extension('themes')
     end
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    tag = "0.2.1",
+    dependencies =  {
+      "someone-stole-my-name/yaml-companion.nvim",
+      "nvim-lua/plenary.nvim" }
   },
   {
     'nvim-tree/nvim-web-devicons',
@@ -68,7 +68,7 @@ require("lazy").setup({
   "lewis6991/gitsigns.nvim",
   {
     '2kabhishek/nerdy.nvim',
-	tag = "1.6",
+    tag = "1.6",
     dependencies = {
         'stevearc/dressing.nvim',
         'folke/snacks.nvim',
@@ -140,19 +140,23 @@ require("lazy").setup({
     branch = 'main',
     lazy = false,
     config = function ()
-      local configs = require("nvim-treesitter.configs")
+      local treesitter = require("nvim-treesitter")
+      treesitter.setup()
+      treesitter.install { 'java', 'c', 'lua', 'vim', 'vimdoc',  'javascript', 'typescript', 'html', 'yaml' }
 
-      configs.setup({
-        ensure_installed = { "c", "lua", "vim", "vimdoc", "html" },
-        sync_install = false,
-        auto_install = true,
-        highlight = { enable = true },
-        additional_vim_regex_highlighting = false,
-        indent = {
-          enable = true,
-          disable = { "yaml", "python" }
-        },
-      })
+      vim.api.nvim_create_autocmd('FileType', {
+      pattern = { 'java', 'c', 'lua', 'vim', 'vimdoc',  'javascript', 'typescript', 'html', 'yaml' },
+      callback = function()
+        -- syntax highlighting, provided by Neovim
+        vim.treesitter.start()
+        -- folds, provided by Neovim (I don't like folds)
+        -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        -- vim.wo.foldmethod = 'expr'
+        -- indentation, provided by nvim-treesitter
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
+    })
+
     end
 
   },
@@ -279,6 +283,15 @@ require("lazy").setup({
 --  },
   -- LSP Support
   "neovim/nvim-lspconfig",
+  {
+    "Kurren123/mssql.nvim",
+    opts = {
+      -- optional
+      keymap_prefix = "<leader>m"
+    },
+    -- optional
+    dependencies = { "folke/which-key.nvim" }
+  },
   "mason-org/mason.nvim",
   "mason-org/mason-lspconfig.nvim",
 
@@ -321,7 +334,7 @@ require("lazy").setup({
   -- Obsidian
   {
     "epwalsh/obsidian.nvim",
-    tag = "v3.15.10",
+    tag = "v3.9.0",
     lazy = true,
     event = {
       "BufReadPre " .. vim.fn.expand "~" .. "/obsidian/*/**.md",

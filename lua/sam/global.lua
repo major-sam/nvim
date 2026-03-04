@@ -11,5 +11,13 @@ vim.g.loaded_node_provider = 0
 vim.g.loaded_perl_provider = 0
 
 vim.g.fugitive_bitbucketservers_domains = {'https://bitbucket.baltbet.ru:8445'}
-
+vim.diagnostic.enable = true
+vim.diagnostic.config({
+  virtual_lines = false,
+})
+vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+   callback = function()
+     vim.diagnostic.open_float(nil, { focus = false })
+   end
+})
 vim.cmd("set mouse=a")
