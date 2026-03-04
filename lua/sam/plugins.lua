@@ -30,7 +30,7 @@ require("lazy").setup({
   },
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.1.8",
+    tag = "0.2.1",
     dependencies =  {
       "someone-stole-my-name/yaml-companion.nvim",
       "nvim-lua/plenary.nvim" }
@@ -292,7 +292,7 @@ require("lazy").setup({
   -- Obsidian
   {
     "epwalsh/obsidian.nvim",
-    tag = "v3.9.0",
+    tag = "v3.15.10",
     lazy = true,
     event = {
       "BufReadPre " .. vim.fn.expand "~" .. "/obsidian/*/**.md",
