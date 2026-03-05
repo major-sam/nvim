@@ -23,6 +23,23 @@ M.icons = {
   Variable = " ",
 }
 
+local lspconfig = vim.lsp.config
+vim.lsp.enable("helm_ls")
+-- setup helm-ls
+lspconfig("helm_ls", {
+	settings = {
+		["helm-ls"] = {
+			yamlls = {
+				path = "yaml-language-server",
+			},
+		},
+	},
+})
+
+-- enable yamlls
+vim.lsp.enable("yamlls")
+-- optional: configure yamlls options
+lspconfig("yamlls", {})
 function M.setup()
   local kinds = vim.lsp.protocol.CompletionItemKind
   for i, kind in ipairs(kinds) do

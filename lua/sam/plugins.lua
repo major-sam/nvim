@@ -43,11 +43,12 @@ require("lazy").setup({
   },
   {
     "nvim-telescope/telescope.nvim",
-    tag = "0.2.1",
+    version = '*',
     dependencies =  {
       "someone-stole-my-name/yaml-companion.nvim",
       "nvim-lua/plenary.nvim" }
   },
+  { "qvalentin/helm-ls.nvim", ft = "helm" },
   {
     'nvim-tree/nvim-web-devicons',
     priority = 1000,
@@ -68,7 +69,6 @@ require("lazy").setup({
   "lewis6991/gitsigns.nvim",
   {
     '2kabhishek/nerdy.nvim',
-    tag = "1.6",
     dependencies = {
         'stevearc/dressing.nvim',
         'folke/snacks.nvim',
@@ -142,10 +142,10 @@ require("lazy").setup({
     config = function ()
       local treesitter = require("nvim-treesitter")
       treesitter.setup()
-      treesitter.install { 'java', 'c', 'lua', 'vim', 'vimdoc',  'javascript', 'typescript', 'html', 'yaml' }
+      treesitter.install { 'java', 'c', 'lua', 'vim', 'vimdoc',  'javascript', 'typescript', 'html', 'yaml', 'helm' }
 
       vim.api.nvim_create_autocmd('FileType', {
-      pattern = { 'java', 'c', 'lua', 'vim', 'vimdoc',  'javascript', 'typescript', 'html', 'yaml' },
+      pattern = { 'java', 'c', 'lua', 'vim', 'vimdoc',  'javascript', 'typescript', 'html', 'yaml', 'helm' },
       callback = function()
         -- syntax highlighting, provided by Neovim
         vim.treesitter.start()
