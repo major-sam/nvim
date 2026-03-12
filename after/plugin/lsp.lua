@@ -35,6 +35,21 @@ lspconfig("helm_ls", {
 		},
 	},
 })
+lspconfig("lua_ls", {
+  settings = {
+    Lua = {
+      workspace = {
+        library = {
+          "$VIMRUNTIME",
+          "$XDG_DATA_HOME/nvim/lazy",
+        },
+      },
+      diagnostics = {
+        globals = {'vim','jit'},
+      },
+    },
+  },
+})
 
 -- enable yamlls
 vim.lsp.enable("yamlls")

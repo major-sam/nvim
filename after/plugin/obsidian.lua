@@ -24,6 +24,7 @@ else
       strict = true
     }
   }
+end
 require("obsidian").setup({
 
   workspaces = ws,
