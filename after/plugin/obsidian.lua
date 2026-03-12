@@ -1,6 +1,5 @@
-require("obsidian").setup({
-
-  workspaces = {
+if string.lower(jit.os) == 'windows' then
+  ws = {
     {
       name = "vault-home",
       path =  "~\\obsidian\\vault-home\\",
@@ -10,8 +9,24 @@ require("obsidian").setup({
       name = "vault1",
       path =  "~\\obsidian\\vault1\\",
       strict = true
+    }
+  }
+else
+  ws = {
+    {
+      name = "vault-home",
+      path =  "~/obsidian/vault-home/",
+      strict = true
     },
-  },
+    {
+      name = "vault1",
+      path =  "~/obsidian/vault1/",
+      strict = true
+    }
+  }
+require("obsidian").setup({
+
+  workspaces = ws,
 
   notes_subdir = "notes",
 
@@ -243,7 +258,7 @@ require("obsidian").setup({
   --   post_set_workspace = function(client, workspace) end,
   -- },
 
-  -- Optional, configure additional syntax highlighting / extmarks.
+  -- Optional, configure additional syntax highlighting / extmark
   -- This requires you have `conceallevel` set to 1 or 2. See `:help conceallevel` for more details.
   ui = {
     enable = true,  -- set to false to disable all additional syntax features
