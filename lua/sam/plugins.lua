@@ -5,7 +5,7 @@ require("lazy").setup({
     "voldikss/vim-translator",
     config = function()
       vim.g.translator_target_lang = "ru";
-      vim.g.translator_default_engines = {'bing', 'google'};
+      vim.g.translator_default_engines = { 'bing', 'google' };
     end,
     keys = {
       {
@@ -38,24 +38,24 @@ require("lazy").setup({
   {
     'andrew-george/telescope-themes',
     config = function()
-        require('telescope').load_extension('themes')
+      require('telescope').load_extension('themes')
     end
   },
   {
     "nvim-telescope/telescope.nvim",
     version = '*',
-    dependencies =  {
+    dependencies = {
       "someone-stole-my-name/yaml-companion.nvim",
       "nvim-lua/plenary.nvim" }
   },
-  { "qvalentin/helm-ls.nvim", ft = "helm" },
+  { "qvalentin/helm-ls.nvim",              ft = "helm" },
   {
     'nvim-tree/nvim-web-devicons',
     priority = 1000,
     config = function()
-      require'nvim-web-devicons'.setup {
-        default = true;
-        strict = true;
+      require 'nvim-web-devicons'.setup {
+        default = true,
+        strict = true,
         override_by_filename = {
           ["Dockerfile.*"] = { icon = "", color = "#0034c3", cterm_color = "4", name = "Docker" },
           ["jenkinsfile.*"] = { icon = "", cterm_color = "196", color = "#FF4500", name = "Jenkins" },
@@ -70,15 +70,15 @@ require("lazy").setup({
   {
     '2kabhishek/nerdy.nvim',
     dependencies = {
-        'stevearc/dressing.nvim',
-        'folke/snacks.nvim',
-        'nvim-telescope/telescope.nvim',
+      'stevearc/dressing.nvim',
+      'folke/snacks.nvim',
+      'nvim-telescope/telescope.nvim',
     },
     cmd = 'Nerdy',
     opts = {
-        max_recents = 30, -- Configure recent icons limit
-        add_default_keybindings = true, -- Add default keybindings
-        copy_to_clipboard = false, -- Copy glyph to clipboard instead of inserting
+      max_recents = 30,                 -- Configure recent icons limit
+      add_default_keybindings = true,   -- Add default keybindings
+      copy_to_clipboard = false,        -- Copy glyph to clipboard instead of inserting
     }
   },
   {
@@ -89,7 +89,7 @@ require("lazy").setup({
   },
   {
     "folke/twilight.nvim",
-    opts = { }
+    opts = {}
   },
   {
     "folke/trouble.nvim",
@@ -139,38 +139,37 @@ require("lazy").setup({
     build = ":TSUpdate",
     branch = 'main',
     lazy = false,
-    config = function ()
+    config = function()
       local treesitter = require("nvim-treesitter")
       treesitter.setup()
-      treesitter.install { 'java', 'c', 'lua', 'vim', 'vimdoc',  'javascript', 'typescript', 'html', 'yaml', 'helm' }
+      treesitter.install { 'java', 'c', 'lua', 'vim', 'vimdoc', 'javascript', 'typescript', 'html', 'yaml', 'helm' }
 
       vim.api.nvim_create_autocmd('FileType', {
-      pattern = { 'java', 'c', 'lua', 'vim', 'vimdoc',  'javascript', 'typescript', 'html', 'yaml', 'helm' },
-      callback = function()
-        -- syntax highlighting, provided by Neovim
-        vim.treesitter.start()
-        -- folds, provided by Neovim (I don't like folds)
-        -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-        -- vim.wo.foldmethod = 'expr'
-        -- indentation, provided by nvim-treesitter
-        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-      end,
-    })
-
+        pattern = { 'java', 'c', 'lua', 'vim', 'vimdoc', 'javascript', 'typescript', 'html', 'yaml', 'helm' },
+        callback = function()
+          -- syntax highlighting, provided by Neovim
+          vim.treesitter.start()
+          -- folds, provided by Neovim (I don't like folds)
+          -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+          -- vim.wo.foldmethod = 'expr'
+          -- indentation, provided by nvim-treesitter
+          vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+        end,
+      })
     end
 
   },
   {
     "goolord/alpha-nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function ()
-      require"alpha".setup(require"alpha.themes.startify".config)
+    config = function()
+      require "alpha".setup(require "alpha.themes.startify".config)
     end
   },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-	tag = "v4.10.0",
+    tag = "v4.10.0",
     opts = {
       -- add any options here
     },
@@ -209,7 +208,7 @@ require("lazy").setup({
       })
     end
   },
-    {
+  {
     "antosha417/nvim-lsp-file-operations",
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -260,27 +259,27 @@ require("lazy").setup({
   --  "nvim-telescope/telescope-file-browser.nvim",
   --  dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
   --},
---  {
---    "nvim-neo-tree/neo-tree.nvim",
---    branch = "v3.x",
---    dependencies = {
---      "nvim-lua/plenary.nvim",
---      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
---      "MunifTanjim/nui.nvim",
---      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
---    },
---    config = function ()
---      -- If you want icons for diagnostic errors, you"ll need to define them somewhere:
---      vim.fn.sign_define("DiagnosticSignError",
---        {text = " ", texthl = "DiagnosticSignError"})
---      vim.fn.sign_define("DiagnosticSignWarn",
---        {text = " ", texthl = "DiagnosticSignWarn"})
---      vim.fn.sign_define("DiagnosticSignInfo",
---        {text = " ", texthl = "DiagnosticSignInfo"})
---      vim.fn.sign_define("DiagnosticSignHint",
---        {text = "󰌵", texthl = "DiagnosticSignHint"})
---    end
---  },
+  --  {
+  --    "nvim-neo-tree/neo-tree.nvim",
+  --    branch = "v3.x",
+  --    dependencies = {
+  --      "nvim-lua/plenary.nvim",
+  --      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+  --      "MunifTanjim/nui.nvim",
+  --      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+  --    },
+  --    config = function ()
+  --      -- If you want icons for diagnostic errors, you"ll need to define them somewhere:
+  --      vim.fn.sign_define("DiagnosticSignError",
+  --        {text = " ", texthl = "DiagnosticSignError"})
+  --      vim.fn.sign_define("DiagnosticSignWarn",
+  --        {text = " ", texthl = "DiagnosticSignWarn"})
+  --      vim.fn.sign_define("DiagnosticSignInfo",
+  --        {text = " ", texthl = "DiagnosticSignInfo"})
+  --      vim.fn.sign_define("DiagnosticSignHint",
+  --        {text = "󰌵", texthl = "DiagnosticSignHint"})
+  --    end
+  --  },
   -- LSP Support
   "neovim/nvim-lspconfig",
   {
@@ -347,8 +346,8 @@ require("lazy").setup({
       "nvim-treesitter"
     },
     keys = {
-      { "<leader>on","viw<cmd>ObsidianLinkNew<CR>",mode = 'n',desc = "Create new Obsidian link"},
-      { "<leader>on","<cmd>ObsidianLinkNew<CR>",mode = 'v',desc = "Create new Obsidian link"},
+      { "<leader>on", "viw<cmd>ObsidianLinkNew<CR>", mode = 'n', desc = "Create new Obsidian link" },
+      { "<leader>on", "<cmd>ObsidianLinkNew<CR>",    mode = 'v', desc = "Create new Obsidian link" },
     },
   },
 })
