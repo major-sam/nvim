@@ -27,25 +27,27 @@ local lspconfig = vim.lsp.config
 vim.lsp.enable("helm_ls")
 -- setup helm-ls
 lspconfig("helm_ls", {
-	settings = {
-		["helm-ls"] = {
-			yamlls = {
-				path = "yaml-language-server",
-			},
-		},
-	},
+  settings = {
+    ["helm-ls"] = {
+      yamlls = {
+        path = "yaml-language-server",
+      },
+    },
+  },
 })
 lspconfig("lua_ls", {
   settings = {
     Lua = {
       workspace = {
+        checkThirdParty = false,
         library = {
           "$VIMRUNTIME",
           "$XDG_DATA_HOME/nvim/lazy",
+          "~/.local/share/nvim/lazy",
         },
       },
       diagnostics = {
-        globals = {'vim','jit'},
+        globals = { 'vim', 'jit' },
       },
     },
   },
