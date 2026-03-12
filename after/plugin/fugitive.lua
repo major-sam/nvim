@@ -3,7 +3,7 @@ vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 
 vim.keymap.set("n", "<leader>P", function()
     vim.cmd.Git({'pull --rebase'})
-end, opts)
+end)
 
 -- NOTE: It allows me to easily set the branch i am pushing and any tracking
 -- needed if i did not set the branch up correctly

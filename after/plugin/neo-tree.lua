@@ -4,8 +4,8 @@ require("neo-tree").setup({
   enable_git_status = true,
   enable_diagnostics = true,
   open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
-  sort_case_insensitive = false, -- used when sorting files and directories in the tree
-  sort_function = nil , -- use a custom function for sorting files and directories in the tree
+  sort_case_insensitive = false,                                     -- used when sorting files and directories in the tree
+  sort_function = nil,                                               -- use a custom function for sorting files and directories in the tree
   -- sort_function = function (a,b)
   --       if a.type == b.type then
   --           return a.path > b.path
@@ -34,11 +34,13 @@ require("neo-tree").setup({
     icon = {
       folder_closed = "",
       folder_open = "",
+      folder_empty_open = " ",
       folder_empty = "󰜌",
       -- The next two settings are only a fallback, if you use nvim-web-devicons and configure default icons there
       -- then these will never be used.
       default = "*",
-      highlight = "NeoTreeFileIcon"
+      highlight = "NeoTreeFileIcon",
+      use_filtered_colors = true
     },
     modified = {
       symbol = "[+]",
@@ -54,8 +56,8 @@ require("neo-tree").setup({
         -- Change type
         added     = "", -- or "✚", but this is redundant info if you use git_status_colors on the name
         modified  = "", -- or "", but this is redundant info if you use git_status_colors on the name
-        deleted   = "✖",-- this can only be used in the git_status source
-        renamed   = "󰁕",-- this can only be used in the git_status source
+        deleted   = "✖", -- this can only be used in the git_status source
+        renamed   = "󰁕", -- this can only be used in the git_status source
         -- Status type
         untracked = "",
         ignored   = "",
@@ -75,10 +77,12 @@ require("neo-tree").setup({
     },
     last_modified = {
       enabled = true,
+      format = "%Y-%m-%d %I:%M %p",
       required_width = 88, -- min width of window required to show this column
     },
     created = {
       enabled = true,
+      format = "%Y-%m-%d %I:%M %p",
       required_width = 110, -- min width of window required to show this column
     },
     symlink_target = {
@@ -179,11 +183,11 @@ require("neo-tree").setup({
       },
     },
     follow_current_file = {
-      enabled = false, -- This will find and focus the file in the active buffer every time
+      enabled = false,                      -- This will find and focus the file in the active buffer every time
       --               -- the current file is changed while the tree is open.
-      leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+      leave_dirs_open = false,              -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
     },
-    group_empty_dirs = false, -- when true, empty folders will be grouped together
+    group_empty_dirs = false,               -- when true, empty folders will be grouped together
     hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
     -- in whatever position is specified in window.position
     -- "open_current",  -- netrw disabled, opening a directory opens within the
@@ -204,7 +208,7 @@ require("neo-tree").setup({
         ["<c-x>"] = "clear_filter",
         ["[g"] = "prev_git_modified",
         ["]g"] = "next_git_modified",
-        ["o"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
+        ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
         ["oc"] = { "order_by_created", nowait = false },
         ["od"] = { "order_by_diagnostics", nowait = false },
         ["og"] = { "order_by_git_status", nowait = false },
@@ -227,18 +231,18 @@ require("neo-tree").setup({
   },
   buffers = {
     follow_current_file = {
-      enabled = true, -- This will find and focus the file in the active buffer every time
+      enabled = true,          -- This will find and focus the file in the active buffer every time
       --              -- the current file is changed while the tree is open.
       leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
     },
-    group_empty_dirs = true, -- when true, empty folders will be grouped together
+    group_empty_dirs = true,   -- when true, empty folders will be grouped together
     show_unloaded = true,
     window = {
       mappings = {
         ["bd"] = "buffer_delete",
         ["<bs>"] = "navigate_up",
         ["."] = "set_root",
-        ["o"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
+        ["o"] = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
         ["oc"] = { "order_by_created", nowait = false },
         ["od"] = { "order_by_diagnostics", nowait = false },
         ["om"] = { "order_by_modified", nowait = false },
@@ -259,7 +263,7 @@ require("neo-tree").setup({
         ["gc"] = "git_commit",
         ["gp"] = "git_push",
         ["gg"] = "git_commit_and_push",
-        ["o"] = { "show_help", nowait=false, config = { title = "Order by", prefix_key = "o" }},
+        ["o"]  = { "show_help", nowait = false, config = { title = "Order by", prefix_key = "o" } },
         ["oc"] = { "order_by_created", nowait = false },
         ["od"] = { "order_by_diagnostics", nowait = false },
         ["om"] = { "order_by_modified", nowait = false },
