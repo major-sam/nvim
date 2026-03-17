@@ -66,7 +66,6 @@ lspconfig("lua_ls", {
         library = {
           vim.env.VIMRUNTIME,
           "$XDG_DATA_HOME/nvim/lazy",
-          "~/.local/share/nvim/lazy",
           -- Depending on the usage, you might want to add additional paths
           -- here.
           '${3rd}/luv/library',

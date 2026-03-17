@@ -11,8 +11,10 @@ vim.filetype.add {
     j2 = 'jinja',
   },
   pattern = {
-    [ '[dD]ocker[fF]ile[-_].*' ] = 'dockerfile',
-    [ '[jJ]enkins[fF]ile[-_].*' ] = 'Jenkinsfile',
-    [ 'main/.ya?ml' ] = 'yaml.ansible'
+    ['[dD]ocker[fF]ile[-_].*'] = 'dockerfile',
+    ['[jJ]enkins[fF]ile[-_].*'] = 'Jenkinsfile',
+    ['main/.ya?ml'] = 'yaml.ansible',
+    ["compose.*%.ya?ml"] = "yaml.docker-compose",
+    ["docker%-compose.*%.ya?ml"] = "yaml.docker-compose",
   },
 }

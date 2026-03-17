@@ -9,14 +9,22 @@ require("lazy").setup({
     opts = {
       bigfile = { enabled = true },
       dashboard = { enabled = true },
-      explorer = { enabled = true },
+      explorer = {
+        enabled = true,
+        replace_netrw = true
+      },
       indent = { enabled = true },
       input = { enabled = true },
       notifier = {
         enabled = true,
         timeout = 3000,
       },
-      picker = { enabled = true },
+      picker = {
+        enabled = true,
+        sources = {
+          explorer = {},
+        }
+      },
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },
@@ -36,6 +44,7 @@ require("lazy").setup({
       { "<leader>:",       function() Snacks.picker.command_history() end,                         desc = "Command History" },
       { "<leader>n",       function() Snacks.picker.notifications() end,                           desc = "Notification History" },
       { "<leader>e",       function() Snacks.explorer() end,                                       desc = "File Explorer" },
+      { "<F3>",            function() Snacks.explorer() end,                                       desc = "File Explorer" },
       -- find
       { "<leader>fb",      function() Snacks.picker.buffers() end,                                 desc = "Buffers" },
       { "<leader>fc",      function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "Find Config File" },
@@ -212,7 +221,14 @@ require("lazy").setup({
       "someone-stole-my-name/yaml-companion.nvim",
       "nvim-lua/plenary.nvim" }
   },
-  { "qvalentin/helm-ls.nvim",              ft = "helm" },
+  {
+    "qvalentin/helm-ls.nvim",
+    ft = "helm",
+    opts = {},
+    dependencies = {
+      "towolf/vim-helm"
+    }
+  },
   {
     'nvim-tree/nvim-web-devicons',
     priority = 1000,
@@ -324,13 +340,6 @@ require("lazy").setup({
 
   },
   {
-    "goolord/alpha-nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require "alpha".setup(require "alpha.themes.startify".config)
-    end
-  },
-  {
     "folke/noice.nvim",
     event = "VeryLazy",
     tag = "v4.10.0",
@@ -373,16 +382,6 @@ require("lazy").setup({
     end
   },
   {
-    "antosha417/nvim-lsp-file-operations",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-neo-tree/neo-tree.nvim", -- makes sure that this loads after Neo-tree.
-    },
-    config = function()
-      require("lsp-file-operations").setup()
-    end,
-  },
-  {
     "s1n7ax/nvim-window-picker",
     version = "2.*",
     config = function()
@@ -393,7 +392,7 @@ require("lazy").setup({
           -- filter using buffer options
           bo = {
             -- if the file type is one of following, the window will be ignored
-            filetype = { "neo-tree", "neo-tree-popup", "notify" },
+            filetype = { "notify" },
             -- if the buffer type is one of following, the window will be ignored
             buftype = { "terminal", "quickfix" },
           },
@@ -401,49 +400,6 @@ require("lazy").setup({
       })
     end,
   },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-      -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
-    },
-    lazy = false, -- neo-tree will lazily load itself
-    ---@module "neo-tree"
-    ---@type neotree.Config?
-    opts = {
-      -- fill any relevant options here
-    },
-  },
-  "PhilRunninger/nerdtree-buffer-ops",
-  "PhilRunninger/nerdtree-visual-selection",
-  --{
-  --  "nvim-telescope/telescope-file-browser.nvim",
-  --  dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
-  --},
-  --  {
-  --    "nvim-neo-tree/neo-tree.nvim",
-  --    branch = "v3.x",
-  --    dependencies = {
-  --      "nvim-lua/plenary.nvim",
-  --      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-  --      "MunifTanjim/nui.nvim",
-  --      -- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
-  --    },
-  --    config = function ()
-  --      -- If you want icons for diagnostic errors, you"ll need to define them somewhere:
-  --      vim.fn.sign_define("DiagnosticSignError",
-  --        {text = " ", texthl = "DiagnosticSignError"})
-  --      vim.fn.sign_define("DiagnosticSignWarn",
-  --        {text = " ", texthl = "DiagnosticSignWarn"})
-  --      vim.fn.sign_define("DiagnosticSignInfo",
-  --        {text = " ", texthl = "DiagnosticSignInfo"})
-  --      vim.fn.sign_define("DiagnosticSignHint",
-  --        {text = "󰌵", texthl = "DiagnosticSignHint"})
-  --    end
-  --  },
   -- LSP Support
   "neovim/nvim-lspconfig",
   {
