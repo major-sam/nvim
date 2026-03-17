@@ -83,7 +83,7 @@ lspconfig("lua_ls", {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { 'vim', 'jit' },
+        globals = { 'vim', 'jit' ,'require' },
       },
     },
   },
