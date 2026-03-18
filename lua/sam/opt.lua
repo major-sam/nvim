@@ -11,7 +11,6 @@ vim.opt.foldenable = false
 vim.opt.smartindent = true
 vim.opt.cmdheight = 1
 vim.opt.wrap = false
-
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true

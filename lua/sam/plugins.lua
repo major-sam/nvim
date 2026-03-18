@@ -1,3 +1,6 @@
+local parser_install_dir = vim.fn.stdpath("data") .. "/treesitter"
+vim.opt.runtimepath:append(parser_install_dir)
+
 ---@module 'snacks'
 require("lazy").setup({
   "neovim/nvim-lspconfig",
@@ -334,7 +337,10 @@ require("lazy").setup({
     lazy = false,
     config = function()
       local treesitter = require("nvim-treesitter")
-      treesitter.setup()
+      treesitter.setup {
+        parser_install_dir = parser_install_dir,
+        install_dir = parser_install_dir,
+      }
       treesitter.install { 'java', 'c', 'lua', 'vim', 'vimdoc', 'javascript', 'typescript', 'html', 'yaml', 'helm' }
 
       vim.api.nvim_create_autocmd('FileType', {
