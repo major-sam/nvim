@@ -44,7 +44,20 @@ require("lazy").setup({
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },
-      statuscolumn = { enabled = true },
+      statuscolumn = {
+        enabled = true,
+        left = { "mark", "sign" }, -- priority of signs on the left (high to low)
+        right = { "mark", "git" }, -- priority of signs on the right (high to low)
+        folds = {
+          open = true,            -- show open fold icons
+          git_hl = true,          -- use Git Signs hl for fold icons
+        },
+        git = {
+          -- patterns to match Git signs
+          patterns = { "GitSign", "MiniDiffSign" },
+        },
+        refresh = 50, -- refresh at most every 50ms
+      },
       words = { enabled = true },
       styles = {
         notification = {
@@ -191,6 +204,12 @@ require("lazy").setup({
     end,
   },
   {
+    "nvim-lualine/lualine.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    }
+  },
+  {
     "voldikss/vim-translator",
     config = function()
       vim.g.translator_target_lang = "ru";
@@ -257,7 +276,7 @@ require("lazy").setup({
           ["jenkinsfile.*"] = { icon = "", cterm_color = "196", color = "#FF4500", name = "Jenkins" },
           ["Jenkinsfile.*"] = { icon = "", cterm_color = "196", color = "#FF4500", name = "Jenkins" },
           ["JenkinsFile.*"] = { icon = "", cterm_color = "196", color = "#FF4500", name = "Jenkins" },
-          ["jenkinsFile.*"] = { icon = "", cterm_color = "196", color = "#ff4500", name = "jenkins" },
+          ["jenkinsFile.*"] = { icon = "", cterm_color = "196", color = "#ff4500", name = "Jenkins" },
         }
       }
     end
@@ -275,12 +294,6 @@ require("lazy").setup({
       max_recents = 30,               -- Configure recent icons limit
       add_default_keybindings = true, -- Add default keybindings
       copy_to_clipboard = false,      -- Copy glyph to clipboard instead of inserting
-    }
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = {
-      "nvim-tree/nvim-web-devicons",
     }
   },
   {
