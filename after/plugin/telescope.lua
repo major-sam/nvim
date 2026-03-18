@@ -16,30 +16,6 @@ require("telescope").setup {
       },
     },
   },
-  --extensions = {
-  --  file_browser = {
-  --    theme = "ivy",
-  --    grouped = true,
-  --    initial_mode = "normal",
-  --    -- disables netrw and use telescope-file-browser in its place
-  --    hijack_netrw = true,
-  --    display_stat = { date = true, size = true, mode = false },
-  --    collapse_dirs = true,
-  --    git_status = true,
-  --    add_dirs = true,
-  --    depth = 2,
-  --    auto_depth = 3,
-  --    use_fd = true,
-  --    mappings = {
-  --      ["i"] = {
-  --        ["C-."] = fb_actions.change_cwd,
-  --      },
-  --      ["n"] = {
-  --        ["."] = fb_actions.change_cwd,
-  --      },
-  --    },
-  --  },
-  --}
 }
 
 -- require("telescope").load_extension("file_browser")
@@ -53,7 +29,5 @@ vim.keymap.set('n', '<leader>bb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>ps', function()
   builtin.grep_string({ search = vim.fn.input("Grep > ") })
 end)
--- vim.keymap.set("n", "<leader>fb", ":Telescope file_browser<CR>")
--- vim.keymap.set("n", "<F3>", ":Telescope file_browser<CR>")
 
 vim.keymap.set('n', '<leader>vh', builtin.help_tags, {})

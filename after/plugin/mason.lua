@@ -26,7 +26,6 @@ require("mason-lspconfig").setup({
     "sqlls",
     "yamlls",
     "jinja_lsp",
-    "taplo",
     "helm_ls",
     "docker_compose_language_service",
     "powershell_es",

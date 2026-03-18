@@ -23,11 +23,3 @@ autocmd('LspAttach', {
     vim.keymap.set('n', '<leader><F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
   end
 })
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "markdown",
-  callback = function()
-    vim.opt.shiftwidth = 2
-    vim.opt.tabstop = 2
-    vim.opt.softtabstop = 2
-  end,
-})
