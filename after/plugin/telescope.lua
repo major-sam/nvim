@@ -13,6 +13,7 @@ require("telescope").setup {
         ["dd"] = actions.delete_buffer,
         ["<C-s>"] = actions.send_selected_to_qflist + actions.open_qflist,
         ["<leader>sq"] = actions.send_selected_to_qflist + actions.open_qflist,
+        ["<leader>tp"] = require("telescope.actions.layout").toggle_preview,
       },
     },
   },
