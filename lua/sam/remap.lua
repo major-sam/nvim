@@ -14,14 +14,14 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("n", "Y", "y$")
 
 -- NOTE: VISUAL replace selected and move to buffer
-vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set("x", "<leader>p", [["_dP]], {desc="replace selected and move to buffer"} )
 
 -- NOTE: NORMAL&VISUAL yank to + buffer
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], {desc="yank selected and move to buffer"} )
+vim.keymap.set("n", "<leader>Y", [["+Y]], {desc="yank string and move to buffer"} )
 
 -- NOTE: NORMAL&VISUAL delete and keep current buffer
-vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]])
+vim.keymap.set({ "n", "v" }, "<leader>d", [["_d]], {desc="delete string and keep current buffer"} )
 
 -- NOTE: NORMAL delete buffer
 vim.keymap.set("n", "<C-q>", "<cmd>bd<CR>")
@@ -48,18 +48,18 @@ vim.keymap.set("n", "<c-left>", "<c-w>>")
 vim.keymap.set("n", "<c-right>", "<c-w><")
 
 -- terminal mode quick switch
-vim.keymap.set('t', '<leader><esc>', '<C-\\><C-N>', { silent = true })
-vim.keymap.set('t', '<leader><l>', '<C-\\><C-N><C-w>h', { silent = true })
-vim.keymap.set('t', '<leader><j>', '<C-\\><C-N><C-w>j', { silent = true })
-vim.keymap.set('t', '<leader><k>', '<C-\\><C-N><C-w>k', { silent = true })
-vim.keymap.set('t', '<leader><h>', '<C-\\><C-N><C-w>l', { silent = true })
+vim.keymap.set('t', '<leader><esc>', '<C-\\><C-N>', {desc="Set terminal to normal mode", silent = true })
+vim.keymap.set('t', '<leader><l>', '<C-\\><C-N><C-w>l', {desc="switch to left tab in terminal mode", silent = true })
+vim.keymap.set('t', '<leader><j>', '<C-\\><C-N><C-w>j', {desc="switch to bottom tab in terminal mode", silent = true })
+vim.keymap.set('t', '<leader><k>', '<C-\\><C-N><C-w>k', {desc="switch to upper tab in terminal mode", silent = true })
+vim.keymap.set('t', '<leader><h>', '<C-\\><C-N><C-w>h', {desc="switch to right tab in terminal mode", silent = true })
 
 
 if vim.fn.has('linux') then
-  vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+  vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", {desc="chmod +x on current buffer", silent = true })
   vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 end
 
 --fun
-vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
-vim.keymap.set("n", "<leader>lf", "<cmd>CellularAutomaton game_of_life<CR>");
+vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>", {desc="make it rain", silent = true });
+vim.keymap.set("n", "<leader>lf", "<cmd>CellularAutomaton game_of_life<CR>", {desc="game of life", silent = true });
