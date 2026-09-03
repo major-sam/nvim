@@ -1,5 +1,4 @@
 -- local fb_actions = require "telescope._extensions.file_browser.actions"
-local builtin = require('telescope.builtin')
 local actions = require('telescope.actions')
 require("telescope").setup {
   defaults = {

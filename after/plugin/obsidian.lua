@@ -1,5 +1,5 @@
 if string.lower(jit.os) == 'windows' then
-  ws = {
+  WS = {
     {
       name = "vault-home",
       path =  "~\\obsidian\\vault-home\\",
@@ -12,7 +12,7 @@ if string.lower(jit.os) == 'windows' then
     }
   }
 else
-  ws = {
+  WS = {
     {
       name = "vault-home",
       path =  "~/obsidian/vault-home/",
@@ -27,7 +27,7 @@ else
 end
 require("obsidian").setup({
 
-  workspaces = ws,
+  workspaces = WS,
 
   notes_subdir = "notes",
 
@@ -268,11 +268,11 @@ require("obsidian").setup({
     -- Define how various check-boxes are displayed
     checkboxes = {
       -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
-      [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
-      ["x"] = { char = "", hl_group = "ObsidianDone" },
-      [">"] = { char = "", hl_group = "ObsidianRightArrow" },
-      ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
-      ["!"] = { char = "", hl_group = "ObsidianImportant" },
+      [" "] = { char = "󰄱", hl_group = "ObsidianTodo" , order = 1 },
+      ["x"] = { char = "", hl_group = "ObsidianDone" , order = 5},
+      [">"] = { char = "", hl_group = "ObsidianRightArrow", order = 4 },
+      ["~"] = { char = "󰰱", hl_group = "ObsidianTilde", order = 3 },
+      ["!"] = { char = "", hl_group = "ObsidianImportant", order = 2 },
       -- Replace the above with this if you don't have a patched font:
       -- [" "] = { char = "☐", hl_group = "ObsidianTodo" },
       -- ["x"] = { char = "✔", hl_group = "ObsidianDone" },
@@ -311,8 +311,13 @@ require("obsidian").setup({
     -- You can always override this per image by passing a full path to the command instead of just a filename.
     img_folder = "assets/imgs",  -- This is the default
 
+    confirm_img_paste = false,
     -- Optional, customize the default name or prefix when pasting images via `:ObsidianPasteImg`.
     ---@return string
+    img_text_func = function()
+      -- Prefix image names with timestamp.
+      return string.format("%s-", os.time())
+    end,
     img_name_func = function()
       -- Prefix image names with timestamp.
       return string.format("%s-", os.time())

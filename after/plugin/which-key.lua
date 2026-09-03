@@ -21,7 +21,7 @@ wk.add({
   { "<leader>y", [["+y]], mode = { "n", "v" }, desc = "yank selected and move to buffer" },
   { "<leader>Y", [["+Y]], desc = "yank string and move to buffer" },
   { "<leader>p", [["_dP]], mode = { "x" }, desc = "replace selected and move to buffer" },
-  { "<leader>ul", '<cmd>UndotreeToggle', desc = 'Toggle undotree'},
+  { "<leader>ul", '<cmd>UndotreeToggle', desc = 'Toggle undotree' },
   {
     "<leader>q",
     function()
@@ -60,9 +60,9 @@ wk.add({
   { "<leader>xQ",    "<cmd>Trouble qflist toggle<cr>",                                                            desc = "Quickfix List (Trouble)", },
   { "<leader>xq",    "<cmd>Trouble quickfix<cr>",                                                                 desc = "Quickfix List (Trouble)", },
 
-  { "<leader>t",     "<cmd>Translate<cr>",                                                                        mode = { "n", "v" },                                   desc = "Translate", },
-  { "<leader>tr",    "<cmd>TranslateR<cr>",                                                                       mode = { "n", "v" },                                   desc = "Replace text with Translate", },
-  { "<leader>tw",    "<cmd>TranslateW<cr>",                                                                       mode = { "n", "v" },                                   desc = "Translate in window", },
+  { "<leader>t",     "<cmd>Translate<cr>",                                                                        mode = { "n", "v" },                                   desc = "Translate" },
+  { "<leader>tr",    "<cmd>TranslateR<cr>",                                                                       mode = { "n", "v" },                                   desc = "Replace text with Translate" },
+  { "<leader>tw",    "<cmd>TranslateW<cr>",                                                                       mode = { "n", "v" },                                   desc = "Translate in window" },
 
   { '<leader>du',    '<Cmd>lua require"dapui".toggle()<CR>',                                                      desc = 'ui toggle' },
   { '<leader>de',    '<Cmd>lua require"dapui".eval()<CR>',                                                        desc = 'eval' },
