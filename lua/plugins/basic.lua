@@ -87,13 +87,8 @@ return{
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
   },
   "laytan/cloak.nvim",
-  -- HACK
-  "eandrju/cellular-automaton.nvim",
-  -- syntax
-  -- WARN some varn
   "martinda/Jenkinsfile-vim-syntax",
   "numToStr/Comment.nvim",
-  -- Identation visualisation
   "machakann/vim-highlightedyank",
   { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
 }
