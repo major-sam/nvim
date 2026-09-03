@@ -39,14 +39,6 @@ vim.keymap.set("n", "<c-down>", "<c-w>+")
 vim.keymap.set("n", "<c-left>", "<c-w>>")
 vim.keymap.set("n", "<c-right>", "<c-w><")
 
--- terminal mode quick switch
-vim.keymap.set('t', '<leader><esc>', '<C-\\><C-N>', { desc = "Set terminal to normal mode", silent = true })
-vim.keymap.set('t', '<leader><l>', '<C-\\><C-N><C-w>l', { desc = "switch to left tab in terminal mode", silent = true })
-vim.keymap.set('t', '<leader><j>', '<C-\\><C-N><C-w>j', { desc = "switch to bottom tab in terminal mode", silent = true })
-vim.keymap.set('t', '<leader><k>', '<C-\\><C-N><C-w>k', { desc = "switch to upper tab in terminal mode", silent = true })
-vim.keymap.set('t', '<leader><h>', '<C-\\><C-N><C-w>h', { desc = "switch to right tab in terminal mode", silent = true })
-
-
 if vim.fn.has('linux') then
   vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 end
