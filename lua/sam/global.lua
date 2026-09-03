@@ -3,6 +3,8 @@ vim.g.maplocalleader = " "
 vim.g.encoding = "utf-8"
 vim.g.nobomb = true
 vim.g.ls = 2
+vim.g.lazyvim_python_lsp = "pyright"
+vim.g.lazyvim_python_ruff = "ruff"
 if string.lower(jit.os) == 'windows' then
   vim.g.perl_host_prog    = 'c:/Strawberry/perl/bin/perl.exe'
   vim.g.python_host_prog  = 'c:/Python27/python.exe'
@@ -23,3 +25,5 @@ vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
   end
 })
 vim.cmd("set mouse=a")
+vim.fn.sign_define('DapBreakpoint', { text = '🐞', texthl = '', linehl = '', numhl = '' })
+vim.fn.sign_define('DapStopped', { text = '🚏', texthl = '', linehl = '', numhl = '' })

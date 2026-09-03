@@ -14,9 +14,5 @@ return{
       "nvim-telescope/telescope.nvim",
       "nvim-treesitter"
     },
-    keys = {
-      { "<leader>on", "viw<cmd>ObsidianLinkNew<CR>", mode = 'n', desc = "Create new Obsidian link" },
-      { "<leader>on", "<cmd>ObsidianLinkNew<CR>",    mode = 'v', desc = "Create new Obsidian link" },
-    },
   },
 }
