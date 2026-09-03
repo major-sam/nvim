@@ -87,6 +87,7 @@ return{
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
   },
   "laytan/cloak.nvim",
+  -- Identation visualisation
   "martinda/Jenkinsfile-vim-syntax",
   "numToStr/Comment.nvim",
   "machakann/vim-highlightedyank",
