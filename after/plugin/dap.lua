@@ -9,9 +9,9 @@ for name, sign in pairs(signs) do
   vim.fn.sign_define(name, sign)
 end
 
-local dap = require('dap')
-dap.defaults.fallback.terminal_win_cmd = 'tabnew'
-dap.defaults.fallback.focus_terminal = true
+-- local dap = require('dap')
+-- dap.defaults.fallback.terminal_win_cmd = 'tabnew'
+-- dap.defaults.fallback.focus_terminal = true
 
 
 dap_python = require('dap-python')
@@ -34,8 +34,4 @@ else
   else
     dap_python.setup('python3')
   end;
-end;
-if string.lower(jit.os) == 'windows' then
-  require("dap-python").setup(vim.g.python3_host_prog)
-else
 end;
