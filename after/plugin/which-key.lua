@@ -3,15 +3,17 @@ local iron_core = require("iron.core")
 local qk = require("quicker")
 local ts_builtin = require('telescope.builtin')
 wk.add({
-  { '<leader>b', group = 'Buffers' },
+  { '<leader>b', icon = '🔀', group = 'Buffers' },
   { '<leader>d', icon = '🐞', group = 'debug' },
   { '<leader>f', group = 'Find' },
   { '<leader>R', icon = '󰑕', group = 'Rename File' },
-  { '<leader>r', group = 'REPL' },
-  { '<leader>t', icon = '󰗊', group = 'Translate' },
+  { '<leader>r', icon = '', group = 'REPL' },
+  { '<leader>t', icon = "󰗊", group = 'Translate' },
   { '<leader>g', icon = '', group = 'Git' },
+  { '<leader>q', icon = '󰁨', group = 'Quickfix' },
   { '<leader>o', icon = '📓', group = 'Obsidian' },
   { '<leader>s', icon = '🍪', group = 'Snaks' },
+  { '<leader>S', icon = '󰗅', group = 'Surround' },
   { '<leader>v', icon = '󰘥', group = 'Help' },
   { '<leader>u', icon = '🔧', group = 'Configs ' },
   { '<leader>x', icon = '🔧', group = 'Trouble' },
@@ -21,7 +23,7 @@ wk.add({
   { "<leader>Y", [["+Y]], desc = "yank string and move to buffer" },
   { "<leader>p", [["_dP]], mode = { "x" }, desc = "replace selected and move to buffer" },
   { "<leader>ul", '<cmd>UndotreeToggle', desc = 'Toggle undotree' },
-  { "<leader>q", function() qk.toggle() end, desc = "Toggle Quickfix list" },
+  { "<leader>qf", function() qk.toggle() end, desc = "Toggle Quickfix list" },
   { "<leader>ql", function() qk.toggle({ loclist = true }) end, desc = "Toggle Quickfix list" },
   { "<leader>fs", function() ts_builtin.grep_string({ search = vim.fn.input("Grep > ") }) end, desc = "Smart Grep in current dir" },
   { '<leader><esc>', '<C-\\><C-N>', mode = "t", desc = "Set terminal to normal mode", silent = true },
@@ -31,13 +33,13 @@ wk.add({
   { '<leader>h', '<C-\\><C-N><C-w>h', mode = "t", desc = "switch to right tab in terminal mode", silent = true },
   { "<leader>on", "<cmd>ObsidianLinkNew<CR>", mode = 'n', desc = "Create new Obsidian link" },
   { "<leader>on", "<cmd>ObsidianLinkNew<CR>", mode = 'v', desc = "Create new Obsidian link" },
-  -- REPL
-  { '<leader>rr',function() iron_core.repl_restart() end, desc = 'REPL(iron) Restart' },
-  { '<leader>rf',"<cmd>IronFocus<cr>" , desc = 'REPL(iron) Ficus' },
-  { '<leader>rf',"<cmd>IronHide<cr>" , desc = 'REPL(iron) Hide' },
-  { '<leader>rv',function() iron_core.visual_send() end, mode= {"v","x"}, desc = 'REPL(iron) send selected text' },
-  { '<leader>rs',function() iron_core.send_file() end,  desc = 'REPL(iron) send current file' },
-  { '<leader>rc',function() iron_core.close_repl() end,  desc = 'REPL(iron) Close Repl' },
+  -- REP siL
+  { '<leader>rr', icon = '', function() iron_core.repl_restart() end, desc = 'REPL(iron) Restarts' },
+  { '<leader>rf', icon = '󱘟', "<cmd>IronFocus<cr>", desc = 'REPL(iron) Ficus' },
+  { '<leader>rh', icon = '', "<cmd>IronHide<cr>", desc = 'REPL(iron) Hide' },
+  { '<leader>rv', icon = '󰿚', function() iron_core.visual_send() end, mode = { "v", "x" }, desc = 'REPL(iron) send selected text' },
+  { '<leader>rs', icon = '󱀹', function() iron_core.send_file() end, desc = 'REPL(iron) send current file' },
+  { '<leader>rc', icon = '', function() iron_core.close_repl() end, desc = 'REPL(iron) Close Repl' },
   -- Trouble
   { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)", },
   { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)", },
@@ -47,7 +49,7 @@ wk.add({
   { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)", },
   { "<leader>xq", "<cmd>Trouble quickfix<cr>", desc = "Quickfix List (Trouble)", },
   -- Translate
-  { "<leader>t", "<cmd>Translate<cr>", mode = { "n", "v" }, desc = "Translate" },
+  { "<leader>tt", "<cmd>Translate<cr>", mode = { "n", "v" }, desc = "Translate" },
   { "<leader>tr", "<cmd>TranslateR<cr>", mode = { "n", "v" }, desc = "Replace text with Translate" },
   { "<leader>tw", "<cmd>TranslateW<cr>", mode = { "n", "v" }, desc = "Translate in window" },
 
