@@ -1,5 +1,8 @@
 return {
   {
+    "theHamsta/nvim-dap-virtual-text",
+  },
+  {
     "nvim-neotest/neotest",
     opts = {
       adapters = {
