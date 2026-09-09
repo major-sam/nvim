@@ -1,4 +1,5 @@
-local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+
 require("mason").setup({
   PATH = "append",
   ui = {
@@ -12,7 +13,7 @@ require("mason").setup({
 
 local default_setup = function(server)
   require('lspconfig')[server].setup({
-    capabilities = lsp_capabilities,
+    capabilities = capabilities,
   })
 end
 require("mason-lspconfig").setup({
@@ -35,7 +36,7 @@ require("mason-lspconfig").setup({
     default_setup,
     lua_ls = function()
       require('lspconfig').lua_ls.setup({
-        capabilities = lsp_capabilities,
+        capabilities = capabilities,
         settings = {
           Lua = {
             runtime = {
