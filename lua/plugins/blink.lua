@@ -1,5 +1,5 @@
 return {
-    {
+  {
     'saghen/blink.compat',
     -- use v2.* for blink.cmp v1.*
     version = '2.*',
@@ -17,8 +17,6 @@ return {
       'rafamadriz/friendly-snippets',
       'Kaiser-Yang/blink-cmp-git',
       'Kaiser-Yang/blink-cmp-dictionary',
-
-
     },
     build = function()
       -- build the fuzzy matcher, optionally add a timeout to `pwait(timeout_ms)`
@@ -47,8 +45,12 @@ return {
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
+        ghost_text = { enabled = true },
+        list = { selection = { auto_insert = true } },
         menu = {
           draw = {
+            padding = 0,
+            columns = { { "kind_icon", gap = 1 }, { gap = 1, "label" }, { "kind", gap = 2 } },
             components = {
               kind_icon = {
                 text = function(ctx)
@@ -89,8 +91,21 @@ return {
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         -- add 'git' to the list
-        default = { 'git', 'dictionary', 'buffer', 'lsp', 'path' },
+        default = { 'lsp', 'snippets', 'dictionary', 'buffer', 'git', 'path' },
         providers = {
+          snippets = {
+            opts = {
+              friendly_snippets = true, -- default
+
+              -- see the list of frameworks in: https://github.com/rafamadriz/friendly-snippets/tree/main/snippets/frameworks
+              -- and search for possible languages in: https://github.com/rafamadriz/friendly-snippets/blob/main/package.json
+              -- the following is just an example, you should only enable the frameworks that you use
+              extended_filetypes = {
+                markdown = { 'jekyll' },
+                sh = { 'shelldoc' }
+              }
+            }
+          },
           git = {
             module = 'blink-cmp-git',
             name = 'Git',
