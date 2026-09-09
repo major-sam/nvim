@@ -1,4 +1,13 @@
 return {
+    {
+    'saghen/blink.compat',
+    -- use v2.* for blink.cmp v1.*
+    version = '2.*',
+    -- lazy.nvim will automatically load the plugin when it's required by blink.cmp
+    lazy = true,
+    -- make sure to set opts so that lazy.nvim calls blink.compat's setup
+    opts = { debug = true },
+  },
   {
     'saghen/blink.cmp',
     dependencies = {
@@ -80,12 +89,32 @@ return {
       -- elsewhere in your config, without redefining it, due to `opts_extend`
       sources = {
         -- add 'git' to the list
-        default = { 'dictionary', 'buffer', 'git', 'lsp', 'path' },
+        default = { 'git', 'dictionary', 'buffer', 'lsp', 'path' },
         providers = {
           git = {
             module = 'blink-cmp-git',
             name = 'Git',
+            enabled = true,
+            --    enabled = function()
+            --      return vim.tbl_contains({ 'octo', 'gitcommit', 'markdown' }, vim.bo.filetype)
+            --    end,
             opts = {
+              kind_icons = {
+                openPR = '',
+                openedPR = '',
+                closedPR = '',
+                mergedPR = '',
+                draftPR = '',
+                lockedPR = '',
+                openIssue = '',
+                openedIssue = '',
+                reopenedIssue = '',
+                completedIssue = '',
+                closedIssue = '',
+                not_plannedIssue = '',
+                duplicateIssue = '',
+                lockedIssue = '',
+              },
               -- options for the blink-cmp-git
               commit = {
                 -- You may want to customize when it should be enabled
@@ -93,6 +122,28 @@ return {
                 -- enable = function() end
                 -- You may want to change the triggers
                 -- triggers = { ':' },
+              },
+              git_centers = {
+                github = {
+                  -- Those below have the same fields with `commit`
+                  -- Those features will be enabled when `git` and `gh` (or `curl`) are found and
+                  -- remote contains `github.com`
+                  -- issue = {
+                  --     get_token = function() return '' end,
+                  -- },
+                  -- pull_request = {
+                  --     get_token = function() return '' end,
+                  -- },
+                  -- mention = {
+                  --     get_token = function() return '' end,
+                  --     get_documentation = function(item)
+                  --         local default = require('blink-cmp-git.default.github')
+                  --             .mention.get_documentation(item)
+                  --         default.get_token = function() return '' end
+                  --         return default
+                  --     end
+                  -- }
+                },
               },
             },
           },
@@ -103,7 +154,7 @@ return {
             -- - In fallback mode: No impact on performance regardless of value
             -- - With fzf: Higher values may improve performance
             -- - With other commands (rg/grep): Higher values significantly improve performance
-            min_keyword_length = 1,
+            min_keyword_length = 3,
             -- options for blink-cmp-dictionary
             opts = {
               -- put your dictionary files here
