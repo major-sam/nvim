@@ -1,12 +1,15 @@
 return {
   "linux-cultist/venv-selector.nvim",
   dependencies = {
-    { "nvim-telescope/telescope.nvim", version = "*", dependencies = { "nvim-lua/plenary.nvim" } }, -- optional: you can also use fzf-lua, snacks, mini-pick instead.
+    "neovim/nvim-lspconfig",
+    "folke/snacks.nvim",
   },
-  ft = "python", --
-  keys = {  }, -- Open picker on keymap
+  ft = "python",       --
+  keys = {},           -- Open picker on keymap
   opts = {
-    options = {}, -- plugin-wide options
-    search = {}   -- custom search definitions
+    picker = "snacks", -- Sets snacks.picker as the default UI
+    draw_square_brackets = true,
+    options = {},      -- plugin-wide options
+    search = {}        -- custom search definitions
   },
 }
