@@ -1,18 +1,24 @@
-return{
-  -- Obsidian
-  {
-    "epwalsh/obsidian.nvim",
-    tag = "v3.9.0",
-    lazy = true,
-    event = {
-      "BufReadPre " .. vim.fn.expand "~" .. "/obsidian/*/**.md",
-      "BufNewFile " .. vim.fn.expand "~" .. "/obsidian/*/**.md",
+return {
+  "obsidian-nvim/obsidian.nvim",
+  version = "*", -- use latest release, remove to use latest commit
+  ---@module 'obsidian'
+  ---@type obsidian.config
+  opts = {
+    link = {
+      style = "markdown"
     },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "hrsh7th/nvim-cmp",
-      "nvim-telescope/telescope.nvim",
-      "nvim-treesitter"
-    },
-  },
+    legacy_commands = false,
+    workspaces      = {
+      {
+        name = "vault-home",
+        path = "~/obsidian/vault-home/",
+        strict = true
+      },
+      {
+        name = "vault1",
+        path = "~/obsidian/vault1/",
+        strict = true
+      }
+    }
+  }
 }
