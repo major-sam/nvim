@@ -2,6 +2,7 @@ local wk = require("which-key")
 local iron_core = require("iron.core")
 local qk = require("quicker")
 local ts_builtin = require('telescope.builtin')
+local neotest = require('neotest')
 wk.add({
   { '<leader>b', icon = '🔀', group = 'Buffers' },
   { '<leader>d', icon = '🐞', group = 'debug' },
@@ -191,12 +192,13 @@ wk.add({
   { "<leader>Tr", "<cmd>TranslateR<cr>", mode = { "n", "v" }, desc = "Replace text with Translate" },
   { "<leader>Tw", "<cmd>TranslateW<cr>", mode = { "n", "v" }, desc = "Translate in window" },
 
-  { "<leader>t", group = "Test" },
-  { "<leader>tt", function() require("neotest").run.run() end, desc = "Run nearest test" },
-  { "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run current file" },
-  { "<leader>ta", function() require("neotest").run.run({ suite = true }) end, desc = "Run all tests" },
-  { "<leader>ts", function() require("neotest").summary.toggle() end, desc = "Toggle summary panel" },
-  { "<leader>td", function() require("neotest").run.run({ strategy = "dap" }) end, desc = "Debug nearest test" },
+  { "<leader>t", icon = '󰙨', group = "Test" },
+  { "<leader>tt", function() neotest.run.run() end, desc = "Run nearest test" },
+  { "<leader>tf", function() neotest.run.run(vim.fn.expand("%")) end, desc = "Run current file" },
+  { "<leader>ta", function() neotest.run.run({ suite = true }) end, desc = "Run all tests" },
+  { "<leader>ts", function() neotest.summary.toggle() end, desc = "Toggle summary panel" },
+  { "<leader>td", function() neotest.run.run({ strategy = "dap" }) end, desc = "Debug nearest test" },
+  { "<leader>to", function() neotest.output_panel.toggle() end, desc = "Toggle output Repl" },
 
 
   { '<leader>du', '<Cmd>lua require"dapui".toggle()<CR>', desc = 'ui toggle' },
