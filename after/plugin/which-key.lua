@@ -8,7 +8,7 @@ wk.add({
   { '<leader>f', group = 'Find' },
   { '<leader>R', icon = '󰑕', group = 'Rename File' },
   { '<leader>r', icon = '', group = 'REPL' },
-  { '<leader>t', icon = "󰗊", group = 'Translate' },
+  { '<leader>T', icon = "󰗊", group = 'Translate' },
   { '<leader>g', icon = '', group = 'Git' },
   { '<leader>q', icon = '󰁨', group = 'Quickfix' },
   { '<leader>o', icon = '📓', group = 'Obsidian' },
@@ -19,7 +19,8 @@ wk.add({
   { '<leader>x', icon = '🔧', group = 'Trouble' },
   -- Top Pickers & Explorer
   { "<leader>f<space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
-  { "<leader>b,", function() Snacks.picker.buffers() end, desc = "Buffers" },
+  { "<leader>bB", function() Snacks.picker.buffers() end, desc = "Buffers" },
+  { "<leader>bS", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
   { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
   { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
   { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
@@ -72,7 +73,9 @@ wk.add({
   { "<leader>sR", function() Snacks.picker.resume() end, desc = "Resume" },
   { "<leader>su", function() Snacks.picker.undo() end, desc = "Undo History" },
   { "<leader>uC", function() Snacks.picker.colorschemes() end, desc = "Colorschemes" },
-  { "<leader>sw", function()
+  {
+    "<leader>sw",
+    function()
       local cword = vim.fn.expand("<cword>")
       -- Executes :WitSearch <word>
       vim.cmd("WitSearch " .. cword)
@@ -80,7 +83,9 @@ wk.add({
     mode = "n",
     desc = "Web Search"
   },
-  { "<leader>sw", function()
+  {
+    "<leader>sw",
+    function()
       vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, false, true), "x", false)
       vim.schedule(function()
         -- Safely extracts lines within the visual block/selection bounds
@@ -89,7 +94,7 @@ wk.add({
         local lines = vim.api.nvim_buf_get_text(0, srow - 1, scol - 1, erow - 1, ecol, {})
         local selection = table.concat(lines, " ")
         if selection ~= "" then
-          print( selection )
+          print(selection)
           vim.cmd("WitSearch " .. selection)
         end
       end)
@@ -121,7 +126,6 @@ wk.add({
   { "<leader>z",  function() Snacks.zen() end,                          desc = "Toggle Zen Mode" },
   { "<leader>Z",  function() Snacks.zen.zoom() end,                     desc = "Toggle Zoom" },
   { "<leader>.",  function() Snacks.scratch() end,                      desc = "Toggle Scratch Buffer" },
-  { "<leader>S",  function() Snacks.scratch.select() end,               desc = "Select Scratch Buffer" },
   { "<leader>n",  function() Snacks.notifier.show_history() end,        desc = "Notification History" },
   { "<leader>bd", function() Snacks.bufdelete() end,                    desc = "Delete Buffer" },
   { "<leader>Rf", function() Snacks.rename.rename_file() end,           desc = "Rename File" },
@@ -150,7 +154,7 @@ wk.add({
       })
     end,
   },
-  { '<leader>bb', ts_builtin.buffers, desc = 'TS show Buffers' },
+  { '<leader>bb', ts_builtin.buffers, desc = 'TS show open Buffers' },
   { '<leader>vh', ts_builtin.help_tags, desc = 'TS Documentation tags' },
   { "<leader>y", [["+y]], mode = { "n", "v" }, desc = "yank selected and move to buffer" },
   { "<leader>Y", [["+Y]], desc = "yank string and move to buffer" },
@@ -183,9 +187,17 @@ wk.add({
   { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)", },
   { "<leader>xq", "<cmd>Trouble quickfix<cr>", desc = "Quickfix List (Trouble)", },
   -- Translate
-  { "<leader>tt", "<cmd>Translate<cr>", mode = { "n", "v" }, desc = "Translate" },
-  { "<leader>tr", "<cmd>TranslateR<cr>", mode = { "n", "v" }, desc = "Replace text with Translate" },
-  { "<leader>tw", "<cmd>TranslateW<cr>", mode = { "n", "v" }, desc = "Translate in window" },
+  { "<leader>Tt", "<cmd>Translate<cr>", mode = { "n", "v" }, desc = "Translate" },
+  { "<leader>Tr", "<cmd>TranslateR<cr>", mode = { "n", "v" }, desc = "Replace text with Translate" },
+  { "<leader>Tw", "<cmd>TranslateW<cr>", mode = { "n", "v" }, desc = "Translate in window" },
+
+  { "<leader>t", group = "Test" },
+  { "<leader>tt", function() require("neotest").run.run() end, desc = "Run nearest test" },
+  { "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run current file" },
+  { "<leader>ta", function() require("neotest").run.run({ suite = true }) end, desc = "Run all tests" },
+  { "<leader>ts", function() require("neotest").summary.toggle() end, desc = "Toggle summary panel" },
+  { "<leader>td", function() require("neotest").run.run({ strategy = "dap" }) end, desc = "Debug nearest test" },
+
 
   { '<leader>du', '<Cmd>lua require"dapui".toggle()<CR>', desc = 'ui toggle' },
   { '<leader>de', '<Cmd>lua require"dapui".eval()<CR>', desc = 'eval' },

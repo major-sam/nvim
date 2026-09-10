@@ -42,8 +42,8 @@ lspconfig("lua_ls", {
     if client.workspace_folders then
       local path = client.workspace_folders[1].name
       if
-        path ~= vim.fn.stdpath('config')
-        and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+          path ~= vim.fn.stdpath('config')
+          and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
       then
         return
       end
@@ -83,12 +83,26 @@ lspconfig("lua_ls", {
   settings = {
     Lua = {
       diagnostics = {
-        globals = { 'vim', 'jit' ,'require', 'Snacks', 'pwait' },
+        globals = { 'vim', 'jit', 'require', 'Snacks', 'pwait' },
+        disable = { 'missing-fields' },
+
       },
     },
   },
 })
 vim.lsp.enable('lua_ls')
+
+lspconfig("pylsp", {
+  settings = {
+    pylsp = {
+      plugins = {
+        black = { enabled = false },
+        autopep8 = { enabled = false },
+        yapf = { enabled = false },
+      },
+    },
+  },
+})
 
 -- enable yamlls
 vim.lsp.enable("yamlls")

@@ -1,4 +1,9 @@
 require("neotest").setup({
+  log_level = vim.log.levels.DEBUG,
+  discovery = {
+    enabled = true,
+    concurrent = 1, -- Limit concurrent processes to avoid deadlocks
+  },
   icons = {
     child_indent = "│",
     child_prefix = "├",
@@ -23,10 +28,10 @@ require("neotest").setup({
   adapters = {
     require("neotest-python")({
       dap = { justMyCode = false },
+      args = { "--log-level", "DEBUG" },
+      runner = "pytest",
+      pytest_discover_instances = true,
     }),
     require("neotest-plenary"),
-    require("neotest-vim-test")({
-      ignore_file_types = { "python", "vim", "lua" },
-    }),
   },
 })

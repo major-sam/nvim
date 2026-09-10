@@ -26,7 +26,6 @@ if string.lower(jit.os) == 'windows' then
     dap_python.setup(vim.g.python3_host_prog)
   end;
 else
-  print ('linux')
   if vim.fn.executable(cwd .. '/venv/bin/python') == 1 then
     dap_python.setup(cwd .. '/venv/bin/python')
   elseif vim.fn.executable(cwd .. '/.venv/bin/python') == 1 then
