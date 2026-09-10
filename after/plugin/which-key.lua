@@ -1,4 +1,5 @@
 local wk = require("which-key")
+local py = require('py-requirements')
 local iron_core = require("iron.core")
 local qk = require("quicker")
 local ts_builtin = require('telescope.builtin')
@@ -178,6 +179,23 @@ wk.add({
   { '<leader>re', icon = '', "<cmd>VenvSelect<cr>", desc = 'REPL venv-selector' },
   { '<leader>rv', icon = '󰿚', function() iron_core.visual_send() end, mode = { "v", "x" }, desc = 'REPL(iron) send selected text' },
   { '<leader>rs', icon = '󱀹', function() iron_core.send_file() end, desc = 'REPL(iron) send current file' },
+  {
+    '<leader>rS',
+    icon = '󱀹',
+    function()
+      local current_file = vim.fn.expand('%:p')
+
+      -- Отправляем команду %run или exec(open().read()) в зависимости от того, что запущено
+      -- Для чистого python3 отправляем скрытое чтение файла:
+      local cmd = string.format("exec(open('%s').read())\n", current_file)
+
+      iron_core.send("python", cmd)
+    end,
+    desc = "Iron: Run current pythoh file silently"
+  },
+  { "<leader>ru", icon = "", py.upgrade, desc = "Upgrade requirement under cursor" },
+  { "<leader>rU", icon = "", py.upgrade_all, desc = "Upgrade all requirements" },
+  { "<leader>rK", icon = "", py.show_description, desc = "Show package PyPI description" },
   { '<leader>rc', icon = '', function() iron_core.close_repl() end, desc = 'REPL(iron) Close Repl' },
   -- Trouble
   { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)", },

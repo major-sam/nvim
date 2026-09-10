@@ -1,7 +1,7 @@
 local parser_install_dir = vim.fn.stdpath("data") .. "/treesitter"
 vim.opt.runtimepath:append(parser_install_dir)
 
-return{
+return {
   {
     "nvim-treesitter/nvim-treesitter",
     build = ":TSUpdate",
@@ -13,7 +13,7 @@ return{
         parser_install_dir = parser_install_dir,
         install_dir = parser_install_dir,
       }
-      treesitter.install { 'java', 'c', 'lua', 'vim', 'vimdoc', 'javascript', 'typescript', 'html', 'yaml', 'helm' }
+      treesitter.install { 'java', 'c', 'lua', 'vim', 'vimdoc', 'javascript', 'typescript', 'html', 'yaml', 'helm', 'requirements', 'toml' }
 
       vim.api.nvim_create_autocmd('FileType', {
         pattern = { 'java', 'c', 'lua', 'vim', 'vimdoc', 'javascript', 'typescript', 'html', 'yaml', 'helm' },

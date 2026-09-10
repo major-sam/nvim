@@ -12,12 +12,17 @@ return {
           sh = {
             -- Can be a table or a function that
             -- returns a table (see below)
-            command = { "zsh" },
+            command = { "fish" },
+          },
+          python = {
+            -- "-u" forces unbuffered stdout
+            -- This configuration processes the block cleanly without command echoing
+            command = { "python3", "-u", "-" }
           },
         },
         -- How the repl window will be displayed
         -- See below for more information
-        repl_open_cmd = require("iron.view").bottom(40),
+        repl_open_cmd = require("iron.view").bottom(30),
       },
       -- If the highlight is on, you can change how it looks
       -- For the available options, check nvim_set_hl
