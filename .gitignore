@@ -1,1 +1,3 @@
 /lazy-lock.json
+tests/python/.venv/*
+

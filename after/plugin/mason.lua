@@ -59,3 +59,5 @@ require("mason-lspconfig").setup({
     end,
   },
 })
+
+require('mason-update-all').setup({})

@@ -1,9 +1,10 @@
-return{
+return {
   'nvim-tree/nvim-web-devicons',
   -- LSP Support
   "neovim/nvim-lspconfig",
   "mason-org/mason.nvim",
   "mason-org/mason-lspconfig.nvim",
+  'RubixDev/mason-update-all',
   {
     "qvalentin/helm-ls.nvim",
     ft = "helm",
