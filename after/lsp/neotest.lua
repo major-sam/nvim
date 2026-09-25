@@ -30,7 +30,6 @@ require("neotest").setup({
 			dap = { justMyCode = false },
 			args = { "--log-level", "DEBUG" },
 			runner = "pytest",
-			python = "python",
 			pytest_discover_instances = true,
 		}),
 		require("neotest-plenary"),

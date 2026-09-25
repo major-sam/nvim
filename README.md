@@ -7,15 +7,16 @@ vim config for dayly usage
 
 pwhs example
 ```powershell
+docker volume create nvim-data
+docker volume create nvim-cache
 docker run -it --rm `
    --name neovim `
    --hostname neovim `
    -w /root `
-   -v ${HOME}/nvim:'/root/.config/nvim' #current dir`
-   -v ${HOME}/obsidian:'/root/obsidian' #optional `
-   -v ${$env:LOCALAPPDATA}/nvim-data-docker:'/root/.local/share/nvim/' `
-   -v ${$env:LOCALAPPDATA}/nvim-state-docker:'/root/.local/state/nvim/' `
-   -v ${$env:LOCALAPPDATA}/nvim-cache-docker:'/root/.cache/nvim/' `
+   -v ${HOME}/nvim:'/root/.config/nvim' `
+   -v ${HOME}/obsidian:'/root/obsidian' `
+   -v nvim-data:/root/.local/ `
+   -v nvim-cache:/root/.cache/ `
    $(docker  build -q .)
 ```
 
