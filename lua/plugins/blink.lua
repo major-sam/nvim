@@ -40,14 +40,26 @@ return {
       -- C-k: Toggle signature help (if signature.enabled = true)
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
-      keymap = { preset = 'default' },
+      keymap = {
+        preset = 'default',
+        ['<C-s>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ['<C-e>'] = { 'hide', 'fallback' },
+        ['<C-y>'] = { 'select_and_accept', 'fallback' },
+        ['<Up>'] = { 'select_prev', 'fallback' },
+        ['<Down>'] = { 'select_next', 'fallback' },
+        ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
+        ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
+      },
       signature = { enabled = true },
 
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
         ghost_text = { enabled = true },
-        list = { selection = { auto_insert = true } },
+        list = { selection = {preselect = true, auto_insert = true } },
+        -- cmdline = { enabled = true},
+        keyword = { range = 'full' },
         menu = {
+          auto_show = false,
           draw = {
             padding = 0,
             columns = { { "kind_icon", gap = 1 }, { gap = 1, "label" }, { "kind", gap = 2 } },

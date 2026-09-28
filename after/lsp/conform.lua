@@ -1,6 +1,7 @@
 require("conform").setup({
   formatters_by_ft = {
-    lua = { "stylua" },
+    lua = { "lua-format", "stylua" },
+    json = { "fixjson",}
     -- Conform will run multiple formatters sequentially
     python = { "ruff_organize_imports","ruff_format",
      -- "isort"

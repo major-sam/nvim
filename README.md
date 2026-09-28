@@ -1,24 +1,6 @@
 # nvim
 vim config for dayly usage
 
-## Docker
-
-⚠️  no obsidian integration
-
-pwhs example
-```powershell
-docker volume create nvim-data
-docker volume create nvim-cache
-docker run -it --rm `
-   --name neovim `
-   --hostname neovim `
-   -w /root `
-   -v ${HOME}/nvim:'/root/.config/nvim' `
-   -v ${HOME}/obsidian:'/root/obsidian' `
-   -v nvim-data:/root/.local/ `
-   -v nvim-cache:/root/.cache/ `
-   $(docker  build -q .)
-```
 
 ## windows
 
