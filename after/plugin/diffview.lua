@@ -90,6 +90,7 @@ require("diffview").setup({
   },
   hooks = {},         -- See |diffview-config-hooks|
   keymaps = {
+    -- TODO: DISABLE DEFAULTS AND GO TO WHICHKEY
     disable_defaults = false, -- Disable the default keymaps
     view = {
       -- The `view` bindings are active in the diff buffers, only when the current
