@@ -14,7 +14,7 @@ end
 -- dap.defaults.fallback.focus_terminal = true
 
 
-dap_python = require('dap-python')
+local dap_python = require('dap-python')
 
 local cwd = vim.fn.getcwd()
 if string.lower(jit.os) == 'windows' then

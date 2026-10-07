@@ -23,3 +23,4 @@ autocmd('LspAttach', {
     vim.keymap.set('n', '<leader><F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
   end
 })
+
