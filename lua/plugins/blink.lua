@@ -41,21 +41,34 @@ return {
       --
       -- See :h blink-cmp-config-keymap for defining your own keymap
       keymap = {
-        preset = 'default',
+        preset = 'none',
+        ['<C-n>'] = { 'select_next', 'fallback' },
+        ['<C-p>'] = { 'select_prev', 'fallback' },
+
+        -- Команды, которые будут отображаться в нашем Which-Key меню
+        ['<C-x><C-x>'] = { 'show', 'fallback' },
+        ['<C-x><C-h>'] = { 'hide', 'fallback' },
+        ['<C-x><C-y>'] = { 'select_and_accept', 'fallback' },
+        ['<C-x><C-s>'] = { 'show', 'show_documentation', 'hide_documentation' },
+        ['<C-x><C-f>'] = { 'scroll_documentation_down', 'fallback' },
+        ['<C-x><C-b>'] = { 'scroll_documentation_up', 'fallback' },
         ['<C-s>'] = { 'show', 'show_documentation', 'hide_documentation' },
         ['<C-e>'] = { 'hide', 'fallback' },
+        ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+        ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
         ['<C-y>'] = { 'select_and_accept', 'fallback' },
         ['<Up>'] = { 'select_prev', 'fallback' },
         ['<Down>'] = { 'select_next', 'fallback' },
-        ['<C-p>'] = { 'select_prev', 'fallback_to_mappings' },
-        ['<C-n>'] = { 'select_next', 'fallback_to_mappings' },
       },
       signature = { enabled = true },
 
+
+
+      -- Убедитесь, что окно документации включено
       -- (Default) Only show the documentation popup when manually triggered
       completion = {
         ghost_text = { enabled = true },
-        list = { selection = {preselect = true, auto_insert = true } },
+        list = { selection = { preselect = true, auto_insert = true } },
         -- cmdline = { enabled = true},
         keyword = { range = 'full' },
         menu = {

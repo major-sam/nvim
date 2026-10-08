@@ -626,24 +626,10 @@ wk.add({
   { "<leader>on", "<cmd>ObsidianLinkNew<CR>", mode = "n", desc = "Create new Obsidian link" },
   { "<leader>on", "<cmd>ObsidianLinkNew<CR>", mode = "v", desc = "Create new Obsidian link" },
 
-  -- Trouble
-  { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>",              desc = "Diagnostics (Trouble)" },
-  { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
-  { "<leader>xs", "<cmd>Trouble symbols toggle focus=false<cr>",      desc = "Symbols (Trouble)" },
-  {
-    "<leader>xl",
-    "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-    desc = "LSP Definitions / references / ... (Trouble)",
-  },
-  { "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
-  { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
-  { "<leader>xq", "<cmd>Trouble quickfix<cr>", desc = "Quickfix List (Trouble)" },
   -- Translate
   { "<leader>Tt", "<cmd>Translate<cr>", mode = { "n", "v" }, desc = "Translate" },
   { "<leader>Tr", "<cmd>TranslateR<cr>", mode = { "n", "v" }, desc = "Replace text with Translate" },
   { "<leader>Tw", "<cmd>TranslateW<cr>", mode = { "n", "v" }, desc = "Translate in window" },
-
-
 
   { "<leader>gdo", "<Cmd>DiffviewOpen<CR>",                   desc = "Open Diffview" },
   { "<leader>gdc", "<Cmd>DiffviewClose<CR>",                  desc = "Close Diffview" },
