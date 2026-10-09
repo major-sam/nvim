@@ -10,16 +10,15 @@ wk.add({
 		end,
 		desc = "Buffers",
 	},
-	-- Top Pickers & Explorer
 	{
-		"<leader>f<space>",
+		"<leader>bg",
 		function()
-			Snacks.picker.smart()
+			Snacks.picker.grep_buffers()
 		end,
-		desc = "Smart Find Files",
+		desc = "Grep Open Buffers",
 	},
 	{
-		"<leader>bB",
+		"<leader>bb",
 		function()
 			Snacks.picker.buffers()
 		end,
@@ -39,5 +38,5 @@ wk.add({
 		end,
 		desc = "Delete Buffer",
 	},
-	{ "<leader>bb", ts_builtin.buffers, desc = "TS show open Buffers" },
+	{ "<leader>bB", ts_builtin.buffers, desc = "TS show open Buffers" },
 })

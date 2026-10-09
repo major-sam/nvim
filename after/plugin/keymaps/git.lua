@@ -60,10 +60,15 @@ wk.add({
 		desc = "Git Log Line",
 	},
 	{
-		"<leader>gg",
+		"<leader>ggl",
 		function()
 			Snacks.lazygit()
 		end,
+		desc = "Lazygit",
+	},
+	{
+		"<leader>ggn",
+		"<cmd>Neogit<cr>",
 		desc = "Lazygit",
 	},
 	{

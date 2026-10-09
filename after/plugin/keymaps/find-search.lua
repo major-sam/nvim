@@ -19,6 +19,13 @@ wk.add({
 		desc = "Search Config File",
 	},
 	{
+		"<leader>s<space>",
+		function()
+			Snacks.picker.smart()
+		end,
+		desc = "Smart Find Files",
+	},
+	{
 		"<leader>sf",
 		function()
 			Snacks.picker.files()
@@ -53,13 +60,6 @@ wk.add({
 			Snacks.picker.lines()
 		end,
 		desc = "Buffer Lines",
-	},
-	{
-		"<leader>sB",
-		function()
-			Snacks.picker.grep_buffers()
-		end,
-		desc = "Grep Open Buffers",
 	},
 	{
 		"<leader>sG",

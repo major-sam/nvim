@@ -2,7 +2,7 @@ local wk = require("which-key")
 local ts_builtin = require("telescope.builtin")
 wk.add({
 	{ "<leader>h", icon = "󰘥", group = "Help" },
-	{ "<leader>vh", ts_builtin.help_tags, desc = "TS Documentation tags" },
+	{ "<leader>hv", ts_builtin.help_tags, desc = "TS Documentation tags" },
 	{
 		"<leader>hp",
 		function()
