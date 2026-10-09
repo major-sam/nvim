@@ -13,8 +13,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- NOTE: NORMAL yank end of line
 vim.keymap.set("n", "Y", "y$")
 
--- NOTE: NORMAL&VISUAL yank to + buffer
-
 -- NOTE: NORMAL delete buffer
 vim.keymap.set("n", "<C-q>", "<cmd>bd<CR>")
 
@@ -38,7 +36,3 @@ vim.keymap.set("n", "<c-up>", "<c-w>-")
 vim.keymap.set("n", "<c-down>", "<c-w>+")
 vim.keymap.set("n", "<c-left>", "<c-w>>")
 vim.keymap.set("n", "<c-right>", "<c-w><")
-
-if vim.fn.has('linux') then
-  vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-end
