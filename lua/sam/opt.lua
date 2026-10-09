@@ -14,18 +14,21 @@ vim.opt.wrap = false
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
-if string.lower(jit.os) == 'windows' then
-  vim.opt.shell = "pwsh"
-  vim.opt.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
-  -- vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
-  vim.opt.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
-  vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
-  vim.opt.shellquote = ""
-  vim.opt.shellxquote = ""
-  vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
+if string.lower(jit.os) == "windows" then
+	vim.o.shell = "pwsh"
+	vim.opt.shell = "pwsh"
+	vim.o.shellslash = false
+	vim.opt.shellcmdflag =
+		"-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;"
+	-- vim.opt.shellredir = "-RedirectStandardOutput %s -NoNewWindow -Wait"
+	vim.opt.shellredir = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+	vim.opt.shellpipe = "2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode"
+	vim.opt.shellquote = ""
+	vim.opt.shellxquote = ""
+	vim.opt.undodir = os.getenv("USERPROFILE") .. "/.vim/undodir"
 else
-  vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
-  vim.opt.shell = os.getenv('SHELL')
+	vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+	vim.opt.shell = os.getenv("SHELL")
 end
 vim.opt.guifont = "Space_Mono_Nerd_Font:h11"
 
@@ -45,11 +48,10 @@ vim.opt.conceallevel = 2
 vim.opt.list = true
 
 vim.opt.listchars = {
-    tab='| ',
-    space=' ',
-    nbsp='·',
-    trail="~",
-    extends='›',
-    precedes='‹'
+	tab = "| ",
+	space = " ",
+	nbsp = "·",
+	trail = "~",
+	extends = "›",
+	precedes = "‹",
 }
-
