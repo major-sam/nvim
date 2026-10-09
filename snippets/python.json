@@ -1,0 +1,10 @@
+{
+  "Python Assert": {
+    "prefix":["as", "ass", "assert"],
+    "body": [
+      "assert ${1:condition}, \"${2:Error message}\""
+    ],
+    "description": "Python assert statement with a message"
+  }
+}
+

@@ -1,19 +1,47 @@
 local wk = require("which-key")
-local qk = require("quicker")
-local ts_builtin = require("telescope.builtin")
 wk.add({
-  { "<leader>b", icon = "🔀", group = "Buffers" },
-  { "<leader>f", group = "Find" },
-  { "<leader>R", icon = "󰑕", group = "Rename File" },
-  { "<leader>T", icon = "󰗊", group = "Translate" },
-  { "<leader>g", icon = "", group = "Git" },
-  { "<leader>q", icon = "󰁨", group = "Quickfix" },
-  { "<leader>s", icon = "🍪", group = "Search & Snaks" },
-  { "<leader>S", icon = "󰗅", group = "Surround" },
-  { "<leader>v", icon = "󰘥", group = "Help" },
-  { "<leader>u", icon = "🔧", group = "Configs " },
-  { "<leader>x", icon = "🔧", group = "Trouble" },
+  -- search with WitSearch
+  {
+    "<leader>sw",
+    function()
+      local cword = vim.fn.expand("<cword>")
+      -- Executes :WitSearch <word>
+      vim.cmd("WitSearch " .. cword)
+    end,
+    mode = "n",
+    desc = "Web Search",
+  },
+  {
+    "<leader>sw",
+    function()
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, false, true), "x", false)
+      vim.schedule(function()
+        -- Safely extracts lines within the visual block/selection bounds
+        local _, srow, scol, _ = unpack(vim.fn.getpos("'<"))
+        local _, erow, ecol, _ = unpack(vim.fn.getpos("'>"))
+        local lines = vim.api.nvim_buf_get_text(0, srow - 1, scol - 1, erow - 1, ecol, {})
+        local selection = table.concat(lines, " ")
+        if selection ~= "" then
+          print(selection)
+          vim.cmd("WitSearch " .. selection)
+        end
+      end)
+    end,
+    mode = { "v", "x", "s" },
+    desc = "Visual Web Search",
+  },
+  {
+    "<leader>sW",
+    function()
+      local cword = vim.fn.expand("<cword>")
+      -- Executes :WitSearch <word>
+      vim.cmd("WitSearch " .. cword)
+    end,
+    mode = "n",
+    desc = "Wikipedia Search",
+  },
   -- Top Pickers & Explorer
+  { "<leader>s", icon = "🍪", group = "Search & Snaks" },
   {
     "<leader>f<space>",
     function()
@@ -372,45 +400,6 @@ wk.add({
     end,
     desc = "Colorschemes",
   },
-  {
-    "<leader>sw",
-    function()
-      local cword = vim.fn.expand("<cword>")
-      -- Executes :WitSearch <word>
-      vim.cmd("WitSearch " .. cword)
-    end,
-    mode = "n",
-    desc = "Web Search",
-  },
-  {
-    "<leader>sw",
-    function()
-      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<ESC>", true, false, true), "x", false)
-      vim.schedule(function()
-        -- Safely extracts lines within the visual block/selection bounds
-        local _, srow, scol, _ = unpack(vim.fn.getpos("'<"))
-        local _, erow, ecol, _ = unpack(vim.fn.getpos("'>"))
-        local lines = vim.api.nvim_buf_get_text(0, srow - 1, scol - 1, erow - 1, ecol, {})
-        local selection = table.concat(lines, " ")
-        if selection ~= "" then
-          print(selection)
-          vim.cmd("WitSearch " .. selection)
-        end
-      end)
-    end,
-    mode = { "v", "x", "s" },
-    desc = "Visual Web Search",
-  },
-  {
-    "<leader>sW",
-    function()
-      local cword = vim.fn.expand("<cword>")
-      -- Executes :WitSearch <word>
-      vim.cmd("WitSearch " .. cword)
-    end,
-    mode = "n",
-    desc = "Wikipedia Search",
-  },
   -- LSP
   {
     "gd",
@@ -589,50 +578,4 @@ wk.add({
       })
     end,
   },
-  { "<leader>bb", ts_builtin.buffers,    desc = "TS show open Buffers" },
-  { "<leader>vh", ts_builtin.help_tags,  desc = "TS Documentation tags" },
-  { "<leader>y",  [["+y]],               mode = { "n", "v" },                    desc = "yank selected and move to buffer" },
-  { "<leader>Y",  [["+Y]],               desc = "yank string and move to buffer" },
-  { "<leader>P",  [["_dP]],              mode = { "x" },                         desc = "replace selected and move to buffer" },
-  { "<leader>ul", "<cmd>UndotreeToggle", desc = "Toggle undotree" },
-  {
-    "<leader>qf",
-    function()
-      qk.toggle()
-    end,
-    desc = "Toggle Quickfix list",
-  },
-  {
-    "<leader>ql",
-    function()
-      qk.toggle({ loclist = true })
-    end,
-    desc = "Toggle Quickfix list",
-  },
-  {
-    "<leader>fs",
-    function()
-      ts_builtin.grep_string({ search = vim.fn.input("Grep > ") })
-    end,
-    desc = "Smart Grep in current dir",
-  },
-  { "<leader><esc>", "<C-\\><C-N>", mode = "t", desc = "Set terminal to normal mode", silent = true },
-  { "<leader>l", "<C-\\><C-N><C-w>l", mode = "t", desc = "switch to left tab in terminal mode", silent = true },
-  { "<leader>j", "<C-\\><C-N><C-w>j", mode = "t", desc = "switch to bottom tab in terminal mode", silent = true },
-  { "<leader>k", "<C-\\><C-N><C-w>k", mode = "t", desc = "switch to upper tab in terminal mode", silent = true },
-  { "<leader>h", "<C-\\><C-N><C-w>h", mode = "t", desc = "switch to right tab in terminal mode", silent = true },
-
-  { "<leader>o", icon = "📓", group = "Obsidian" },
-  { "<leader>on", "<cmd>ObsidianLinkNew<CR>", mode = "n", desc = "Create new Obsidian link" },
-  { "<leader>on", "<cmd>ObsidianLinkNew<CR>", mode = "v", desc = "Create new Obsidian link" },
-
-  -- Translate
-  { "<leader>Tt", "<cmd>Translate<cr>", mode = { "n", "v" }, desc = "Translate" },
-  { "<leader>Tr", "<cmd>TranslateR<cr>", mode = { "n", "v" }, desc = "Replace text with Translate" },
-  { "<leader>Tw", "<cmd>TranslateW<cr>", mode = { "n", "v" }, desc = "Translate in window" },
-
-  { "<leader>gdo", "<Cmd>DiffviewOpen<CR>",                   desc = "Open Diffview" },
-  { "<leader>gdc", "<Cmd>DiffviewClose<CR>",                  desc = "Close Diffview" },
-  { "<leader>gdf", "<Cmd>DiffviewFileHistory<CR>",            desc = "Open Diffview history" },
-  { "<leader>gdt", "<Cmd>DiffviewToggleFiles<CR>",            desc = "Open Toggle" },
 })

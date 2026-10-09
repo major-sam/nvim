@@ -5,6 +5,8 @@ vim.g.nobomb = true
 vim.g.ls = 2
 vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_python_ruff = "ruff"
+-- vim.g.loaded_python3_provider = 0
+vim.g.python3_host_prog ='/usr/bin/python3'
 if string.lower(jit.os) == 'windows' then
   vim.g.perl_host_prog    = 'c:/Strawberry/perl/bin/perl.exe'
   vim.g.python_host_prog  = 'c:/Python27/python.exe'
@@ -19,9 +21,9 @@ vim.diagnostic.enable = true
 vim.diagnostic.config({
   virtual_lines = false,
 })
-vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-  callback = function()
-    vim.diagnostic.open_float(nil, { focus = false })
-  end
-})
+-- vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+--   callback = function()
+--     vim.diagnostic.open_float(nil, { focus = false })
+--   end
+-- })
 vim.cmd("set mouse=a")

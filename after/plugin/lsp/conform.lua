@@ -1,11 +1,9 @@
 require("conform").setup({
   formatters_by_ft = {
     lua = { "lua-format", "stylua" },
-    json = { "fixjson",}
+    json = { "fixjson" },
     -- Conform will run multiple formatters sequentially
-    python = { "ruff_organize_imports","ruff_format",
-     -- "isort"
-    },
+    python = { "ruff_organize_imports", "ruff_format", "ruff_fix"  },
     -- You can customize some of the format options for the filetype (:help conform.format)
     rust = { "rustfmt", lsp_format = "fallback" },
     -- Conform will run the first available formatter
