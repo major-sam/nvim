@@ -1,7 +1,6 @@
 local wk = require("which-key")
 wk.add({
-	{ "<leader>g", icon = "", group = "Git & Diff" },
-	-- git
+	{ "<leader>g", icon = "", group = "Git & Diff" }, -- git
 	{
 		"<F5>",
 		function()
@@ -9,18 +8,14 @@ wk.add({
 			vim.cmd.Git("commit")
 		end,
 		desc = "Git Stage & Commit",
-	},
-
-	-- 3. Push без force
+	}, -- 3. Push без force
 	{
 		"<F6>",
 		function()
 			vim.cmd.Git("push --no-force-with-lease")
 		end,
 		desc = "Git Push (No Force)",
-	},
-
-	-- 4. Amend + Force Push (исправленный Ctrl + F6)
+	}, -- 4. Amend + Force Push (исправленный Ctrl + F6)
 	{
 		"<C-F6>",
 		function()
@@ -33,14 +28,14 @@ wk.add({
 	{
 		"<leader>gb",
 		function()
-			Snaks.picker.git_branches()
+			Snacks.picker.git_branches()
 		end,
 		desc = "Git Branches",
 	},
 	{
 		"<leader>gB",
 		function()
-			Snaks.gitbrowse()
+			Snacks.gitbrowse()
 		end,
 		desc = "Git Browse",
 		mode = { "n", "v" },
@@ -48,29 +43,25 @@ wk.add({
 	{
 		"<leader>gl",
 		function()
-			Snaks.picker.git_log()
+			Snacks.picker.git_log()
 		end,
 		desc = "Git Log",
 	},
 	{
 		"<leader>gL",
 		function()
-			Snaks.picker.git_log_line()
+			Snacks.picker.git_log_line()
 		end,
 		desc = "Git Log Line",
 	},
 	{
 		"<leader>ggl",
 		function()
-			Snaks.lazygit()
+			Snacks.lazygit()
 		end,
 		desc = "Lazygit",
 	},
-	{
-		"<leader>ggn",
-		"<cmd>Neogit<cr>",
-		desc = "Lazygit",
-	},
+	{ "<leader>ggn", "<cmd>Neogit<cr>", desc = "Lazygit" },
 	{
 		"<leader>gG",
 		function()
@@ -81,63 +72,66 @@ wk.add({
 	{
 		"<leader>gs",
 		function()
-			Snaks.picker.git_status()
+			Snacks.picker.git_status()
 		end,
 		desc = "Git Status",
 	},
 	{
 		"<leader>gS",
 		function()
-			Snaks.picker.git_stash()
+			Snacks.picker.git_stash()
 		end,
 		desc = "Git Stash",
 	},
 	{
 		"<leader>gd",
 		function()
-			Snaks.picker.git_diff()
+			Snacks.picker.git_diff()
 		end,
 		desc = "Git Diff (Hunks)",
 	},
 	{
 		"<leader>gf",
 		function()
-			Snaks.picker.git_log_file()
+			Snacks.picker.git_log_file()
 		end,
 		desc = "Git Log File",
-	},
-	-- gh
+	}, -- gh
 	{
 		"<leader>gi",
 		function()
-			Snaks.picker.gh_issue()
+			Snacks.picker.gh_issue()
 		end,
 		desc = "GitHub Issues (open)",
 	},
 	{
 		"<leader>gI",
 		function()
-			Snaks.picker.gh_issue({ state = "all" })
+			Snacks.picker.gh_issue({ state = "all" })
 		end,
 		desc = "GitHub Issues (all)",
 	},
 	{
 		"<leader>gp",
 		function()
-			Snaks.picker.gh_pr()
+			Snacks.picker.gh_pr()
 		end,
 		desc = "GitHub Pull Requests (open)",
 	},
 	{
 		"<leader>gP",
 		function()
-			Snaks.picker.gh_pr({ state = "all" })
+			Snacks.picker.gh_pr({ state = "all" })
 		end,
 		desc = "GitHub Pull Requests (all)",
 	},
 	{ "<leader>gdo", "<Cmd>DiffviewOpen<CR>", desc = "Open Diffview" },
 	{ "<leader>gdc", "<Cmd>DiffviewClose<CR>", desc = "Close Diffview" },
-	{ "<leader>gdf", "<Cmd>DiffviewFileHistory<CR>", desc = "Open Diffview history" },
+	{
+		"<leader>gdf",
+		"<Cmd>DiffviewFileHistory<CR>",
+		desc = "Open Diffview history",
+	},
 	{ "<leader>gdt", "<Cmd>DiffviewToggleFiles<CR>", desc = "Open Toggle" },
 })
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)

@@ -1,40 +1,39 @@
 local wk = require("which-key")
 local ts_builtin = require("telescope.builtin")
 wk.add({
-	{ "<leader>b", icon = "🔀", group = "Buffers" },
-	-- find buffers
+	{ "<leader>b", icon = "🔀", group = "Buffers" }, -- find buffers
 	{
 		"<leader>bf",
 		function()
-			Snaks.picker.buffers()
+			Snacks.picker.buffers()
 		end,
 		desc = "Buffers",
 	},
 	{
 		"<leader>bg",
 		function()
-			Snaks.picker.grep_buffers()
+			Snacks.picker.grep_buffers()
 		end,
 		desc = "Grep Open Buffers",
 	},
 	{
 		"<leader>bb",
 		function()
-			Snaks.picker.buffers()
+			Snacks.picker.buffers()
 		end,
 		desc = "Buffers",
 	},
 	{
 		"<leader>bS",
 		function()
-			Snaks.scratch.select()
+			Snacks.scratch.select()
 		end,
 		desc = "Select Scratch Buffer",
 	},
 	{
 		"<leader>bd",
 		function()
-			Snaks.bufdelete()
+			Snacks.bufdelete()
 		end,
 		desc = "Delete Buffer",
 	},

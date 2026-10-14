@@ -39,7 +39,6 @@ return {
 		end,
 	},
 	"mbbill/undotree",
-	"sindrets/diffview.nvim",
 	"nvim-treesitter/nvim-treesitter-context",
 	{
 		"2kabhishek/nerdy.nvim",
@@ -59,6 +58,7 @@ return {
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 	},
+	"uga-rosa/translate.nvim",
 	"lewis6991/gitsigns.nvim",
 	{
 		"stevearc/quicker.nvim",
