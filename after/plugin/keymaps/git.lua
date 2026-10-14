@@ -61,7 +61,7 @@ wk.add({
 		end,
 		desc = "Lazygit",
 	},
-	{ "<leader>ggn", "<cmd>Neogit<cr>", desc = "Lazygit" },
+	{ "<leader>ggn", "<cmd>Neogit<cr>", desc = "NeoGit" },
 	{
 		"<leader>gG",
 		function()
