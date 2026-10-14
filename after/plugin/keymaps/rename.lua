@@ -4,7 +4,7 @@ wk.add({
 	{
 		"<leader>rf",
 		function()
-			Snacks.rename.rename_file()
+			Snaks.rename.rename_file()
 		end,
 		desc = "Rename File",
 	},

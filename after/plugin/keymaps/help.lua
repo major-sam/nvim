@@ -6,7 +6,7 @@ wk.add({
 	{
 		"<leader>hp",
 		function()
-			Snacks.picker.help()
+			Snaks.picker.help()
 		end,
 		desc = "Help Pages",
 	},

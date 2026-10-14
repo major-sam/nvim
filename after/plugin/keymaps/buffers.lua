@@ -6,35 +6,35 @@ wk.add({
 	{
 		"<leader>bf",
 		function()
-			Snacks.picker.buffers()
+			Snaks.picker.buffers()
 		end,
 		desc = "Buffers",
 	},
 	{
 		"<leader>bg",
 		function()
-			Snacks.picker.grep_buffers()
+			Snaks.picker.grep_buffers()
 		end,
 		desc = "Grep Open Buffers",
 	},
 	{
 		"<leader>bb",
 		function()
-			Snacks.picker.buffers()
+			Snaks.picker.buffers()
 		end,
 		desc = "Buffers",
 	},
 	{
 		"<leader>bS",
 		function()
-			Snacks.scratch.select()
+			Snaks.scratch.select()
 		end,
 		desc = "Select Scratch Buffer",
 	},
 	{
 		"<leader>bd",
 		function()
-			Snacks.bufdelete()
+			Snaks.bufdelete()
 		end,
 		desc = "Delete Buffer",
 	},

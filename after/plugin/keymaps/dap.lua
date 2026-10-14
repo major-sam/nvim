@@ -4,142 +4,137 @@ local wk = require("which-key")
 local widgets = require("dap.ui.widgets")
 wk.add({
 	{ "<leader>d", icon = "🔀", group = "debug" },
-})
-wk.add({
-
-	mode = "n",
 	prefix = "<leader>d",
-	group = "debug",
 }, {
 	{
-		"u",
+		"<leader>du",
 		function()
 			dapui.toggle()
 		end,
 		desc = "ui toggle",
 	},
 	{
-		"e",
+		"<leader>de",
 		function()
 			dapui.eval()
 		end,
 		desc = "eval",
 	},
 	{
-		"E",
+		"<leader>dE",
 		function()
 			dapui.toggle()
 		end,
 		desc = "float element",
 	},
 	{
-		"c",
+		"<leader>dc",
 		function()
 			dap.continue()
 		end,
 		desc = "continue",
 	},
 	{
-		"l",
+		"<leader>dl",
 		function()
 			dap.run_last()
 		end,
 		desc = "run last",
 	},
 	{
-		"q",
+		"<leader>dq",
 		function()
 			dap.terminate()
 		end,
 		desc = "terminate",
 	},
 	{
-		"h",
+		"<leader>dh",
 		function()
 			dap.stop()
 		end,
 		desc = "stop",
 	},
 	{
-		"n",
+		"<leader>dn",
 		function()
 			dap.step_over()
 		end,
 		desc = "step over",
 	},
 	{
-		"s",
+		"<leader>ds",
 		function()
 			dap.step_into()
 		end,
 		desc = "step into",
 	},
 	{
-		"S",
+		"<leader>dS",
 		function()
 			dap.step_out()
 		end,
 		desc = "step out",
 	},
 	{
-		"b",
+		"<leader>db",
 		function()
 			dap.toggle_breakpoint()
 		end,
 		desc = "toggle br",
 	},
 	{
-		"B",
+		"<leader>dB",
 		function()
 			dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
 		end,
 		desc = "set br condition",
 	},
 	{
-		"p",
+		"<leader>dp",
 		function()
 			dap.set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
 		end,
 		desc = "set log br",
 	},
 	{
-		"r",
+		"<leader>dr",
 		function()
 			dap.repl.open()
 		end,
 		desc = "REPL open",
 	},
 	{
-		"k",
+		"<leader>dk",
 		function()
 			dap.up()
 		end,
 		desc = "up callstack",
 	},
 	{
-		"j",
+		"<leader>dj",
 		function()
 			dap.down()
 		end,
 		desc = "down callstack",
 	},
 	{
-		"i",
+		"<leader>di",
 		function()
 			dap.ui.widgets.hover()
 		end,
 		desc = "info",
 	},
 	{
-		"?",
+		"<leader>d?",
 		function()
 			widgets.centered_float(widgets.scopes)
 		end,
 		desc = "scopes",
 	},
-	{ "f", "<Cmd>Telescope dap frames<CR>", desc = "search frames" },
-	{ "C", "<Cmd>Telescope dap commands<CR>", desc = "search commands" },
-	{ "L", "<Cmd>Telescope dap list_breakpoints<CR>", desc = "search breakpoints" },
+	{ "<leader>df", "<Cmd>Telescope dap frames<CR>", desc = "search frames" },
+	{ "<leader>dC", "<Cmd>Telescope dap commands<CR>", desc = "search commands" },
+	{ "<leader>dL", "<Cmd>Telescope dap list_breakpoints<CR>", desc = "search breakpoints" },
 })
 -- 1. Create a function to register debugging-only keys
 local function register_dap_keys()
