@@ -54,14 +54,7 @@ wk.add({
 		end,
 		desc = "Git Log Line",
 	},
-	{
-		"<leader>ggl",
-		function()
-			Snacks.lazygit()
-		end,
-		desc = "Lazygit",
-	},
-	{ "<leader>ggn", "<cmd>Neogit<cr>", desc = "NeoGit" },
+	{ "<leader>gg", "<cmd>Neogit<cr>", desc = "NeoGit" },
 	{
 		"<leader>gG",
 		function()

@@ -6,7 +6,7 @@ return {
 		lazy = false,
 		---@type snacks.Config
 		opts = {
-			lazygit = { enabled = true },
+			lazygit = { enabled = false },
 			bigfile = { enabled = true },
 			dashboard = { enabled = true },
 			explorer = { enabled = true, replace_netrw = true },
