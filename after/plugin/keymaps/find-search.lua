@@ -127,7 +127,7 @@ wk.add({
 		desc = "Buffer Diagnostics",
 	},
 	{
-		"<leader>shl",
+		"<leader>sh",
 		function()
 			Snacks.picker.highlights()
 		end,

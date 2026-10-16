@@ -12,6 +12,9 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 -- NOTE: NORMAL yank end of line
 vim.keymap.set("n", "Y", "y$")
+-- NOTE: NORMAL&VISUAL yank to + buffer
+vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "yank selected and move to buffer" })
+vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "yank string and move to buffer" })
 
 -- NOTE: NORMAL delete buffer
 vim.keymap.set("n", "<C-q>", "<cmd>bd<CR>")
