@@ -1,10 +1,10 @@
 local wk = require("which-key")
+local neogit = require("neogit")
 wk.add({
 	{ "<leader>g", icon = "", group = "Git & Diff" }, -- git
 	{
 		"<F5>",
 		function()
-			local neogit = require("neogit")
 			neogit.cli.add.args("-A").call()
 			neogit.open({ "commit" })
 		end,
@@ -13,11 +13,12 @@ wk.add({
 	{
 		"<F6>",
 		function()
-			require("neogit").cli.push.call()
+			neogit.open({ "push" })
 		end,
 		desc = "Neogit: Push",
 	},
 	{
+		-- TODO: redo
 		"<C-F6>",
 		function()
 			local neogit = require("neogit")
