@@ -5,6 +5,7 @@ vim.g.nobomb = true
 vim.g.ls = 2
 vim.g.lazyvim_python_lsp = "pyright"
 vim.g.lazyvim_python_ruff = "ruff"
+-- vim.opt.shell = "/bin/bash"
 -- vim.g.loaded_python3_provider = 0
 vim.g.python3_host_prog = "/usr/bin/python3"
 if string.lower(jit.os) == "windows" then
@@ -18,7 +19,5 @@ vim.g.loaded_perl_provider = 0
 
 vim.g.fugitive_bitbucketservers_domains = { "https://bitbucket.baltbet.ru:8445" }
 vim.diagnostic.enable = true
-vim.diagnostic.config({
-	virtual_lines = false,
-})
+vim.diagnostic.config({ virtual_lines = false })
 vim.cmd("set mouse=a")

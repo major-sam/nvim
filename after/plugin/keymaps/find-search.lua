@@ -2,13 +2,13 @@ local wk = require("which-key")
 wk.add({
 	{ "<leader>s", group = "Search & Grep" },
 	{ "<leader>sd", group = "Search Diagnostic" },
-	{ "<leader>sc", group = "Staff" },
-	-- find
+	{ "<leader>sc", group = "Staff" }, -- find
 	{
 		"<leader>/",
 		function()
 			Snacks.picker.grep()
 		end,
+		icon = "󰈞",
 		desc = "Grep",
 	},
 	{
@@ -75,8 +75,7 @@ wk.add({
 		end,
 		desc = "Visual selection or word",
 		mode = { "n", "x" },
-	},
-	-- search
+	}, -- search
 	{
 		'<leader>s"',
 		function()

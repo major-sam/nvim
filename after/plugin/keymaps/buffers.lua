@@ -1,8 +1,7 @@
 local wk = require("which-key")
 local ts_builtin = require("telescope.builtin")
 wk.add({
-	{ "<leader>b", icon = "🔀", group = "Buffers" },
-	-- find buffers
+	{ "<leader>b", icon = "🔀", group = "Buffers" }, -- find buffers
 	{
 		"<leader>bf",
 		function()

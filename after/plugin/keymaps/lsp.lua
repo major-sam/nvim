@@ -71,29 +71,43 @@ wk.add({
 			Snacks.picker.lsp_outgoing_calls()
 		end,
 		desc = "C[a]lls Outgoing",
-	},
-	-- Goto mappings (g prefix)
-
+	}, -- Goto mappings (g prefix)
 	-- Trouble
 	{ "<leader>lx", icon = "🔧", group = "Trouble" },
-	{ "<leader>lxx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
-	{ "<leader>lxX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
-	{ "<leader>lxs", "<cmd>Trouble symbols toggle focus=false<cr>", desc = "Symbols (Trouble)" },
+	{
+		"<leader>lxx",
+		"<cmd>Trouble diagnostics toggle<cr>",
+		desc = "Diagnostics (Trouble)",
+	},
+	{
+		"<leader>lxX",
+		"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+		desc = "Buffer Diagnostics (Trouble)",
+	},
+	{
+		"<leader>lxs",
+		"<cmd>Trouble symbols toggle focus=false<cr>",
+		desc = "Symbols (Trouble)",
+	},
 	{
 		"<leader>lxl",
 		"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
 		desc = "LSP Definitions / references / ... (Trouble)",
 	},
-	{ "<leader>lxL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
-	{ "<leader>lxQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
-	{ "<leader>lxq", "<cmd>Trouble quickfix<cr>", desc = "Quickfix List (Trouble)" },
-
 	{
-		"<leader><F4>",
-		function()
-			vim.cmd("Lspsaga code_action")
-		end,
-		desc = "Lspsaga: Действия кода",
+		"<leader>lxL",
+		"<cmd>Trouble loclist toggle<cr>",
+		desc = "Location List (Trouble)",
+	},
+	{
+		"<leader>lxQ",
+		"<cmd>Trouble qflist toggle<cr>",
+		desc = "Quickfix List (Trouble)",
+	},
+	{
+		"<leader>lxq",
+		"<cmd>Trouble quickfix<cr>",
+		desc = "Quickfix List (Trouble)",
 	},
 	{
 		"<leader>la",
@@ -101,20 +115,6 @@ wk.add({
 			vim.cmd("Lspsaga code_action")
 		end,
 		desc = "Lspsaga: Действия кода",
-	},
-	{
-		"<leader><F2>",
-		function()
-			vim.cmd("Lspsaga rename")
-		end,
-		desc = "Lspsaga: Переименовать (Smart Rename)",
-	},
-	{
-		"<leader>lhd",
-		function()
-			vim.cmd("Lspsaga hover_doc")
-		end,
-		desc = "Lspsaga: Документация (Hover)",
 	},
 	{
 		"<leader>ls",
@@ -183,6 +183,14 @@ autocmd("LspAttach", {
 				buffer = event.buf,
 			},
 			{
+				"<leader><F2>",
+				function()
+					vim.cmd("Lspsaga rename")
+				end,
+				desc = "Lspsaga: Переименовать (Smart Rename)",
+				buffer = event.buf, -- Обязательно привязываем к буферу LSP, как и F3!
+			},
+			{
 				"<leader><F3>",
 				function()
 					vim.lsp.buf.format({ async = true })
@@ -192,9 +200,19 @@ autocmd("LspAttach", {
 				buffer = event.buf,
 			},
 			{
+				"<leader><F4>",
+				function()
+					vim.cmd("Lspsaga code_action")
+				end,
+				desc = "Lspsaga: Действия кода",
+				buffer = event.buf, -- Обязательно привязываем к буферу LSP, как и F3!
+			},
+			{
 				"<leader>lh",
 				function()
-					local enabled = vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf })
+					local enabled = vim.lsp.inlay_hint.is_enabled({
+						bufnr = event.buf,
+					})
 					vim.lsp.inlay_hint.enable(not enabled, { bufnr = event.buf })
 				end,
 				desc = "Toggle Inlay Hints",

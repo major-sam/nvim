@@ -6,6 +6,7 @@ wk.add({
 		function()
 			Snacks.picker.command_history()
 		end,
+		icon = "",
 		desc = "Command History",
 	},
 	{
@@ -99,6 +100,7 @@ wk.add({
 	{
 		"<leader>N",
 		desc = "Neovim News",
+		icon = "󰼍",
 		function()
 			Snacks.win({
 				file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
@@ -114,10 +116,30 @@ wk.add({
 			})
 		end,
 	},
+	{ "<leader>y", icon = "󰆏", group = "Yank to system buffer" },
+	-- 1. Normal mode (копирование строки или по оператору, например: <leader>yip)
+	{
+		"<leader>y",
+		'"+y',
+		icon = "󰆏",
+		desc = "Yank to system clipboard",
+		mode = "n",
+	},
+
+	-- 2. Visual modes (обычный 'v', строковый 'V' и блочный 'Ctrl+V')
+	{ "<leader>y", '"+y', desc = "Yank selection to clipboard", mode = { "x" } },
+
+	-- 3. Terminal mode
+	-- Примечание: в терминале сначала нужно выйти в normal-mode терминала через <C-\><C-n>
+	{ "<leader>y", [[<C-\><C-n>"+y]], desc = "Yank from terminal", mode = "t" },
 })
 -- TMUX
 if vim.fn.has("linux") == 1 then
 	wk.add({
-		{ "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", desc = "Tmux sessionizer" },
+		{
+			"<C-f>",
+			"<cmd>silent !tmux neww tmux-sessionizer<CR>",
+			desc = "Tmux sessionizer",
+		},
 	})
 end

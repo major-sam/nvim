@@ -1,7 +1,6 @@
 local wk = require("which-key")
 wk.add({
-	{ "<leader>g", icon = "", group = "Git & Diff" },
-	-- git
+	{ "<leader>g", icon = "", group = "Git & Diff" }, -- git
 	{
 		"<F5>",
 		function()
@@ -9,18 +8,14 @@ wk.add({
 			vim.cmd.Git("commit")
 		end,
 		desc = "Git Stage & Commit",
-	},
-
-	-- 3. Push без force
+	}, -- 3. Push без force
 	{
 		"<F6>",
 		function()
 			vim.cmd.Git("push --no-force-with-lease")
 		end,
 		desc = "Git Push (No Force)",
-	},
-
-	-- 4. Amend + Force Push (исправленный Ctrl + F6)
+	}, -- 4. Amend + Force Push (исправленный Ctrl + F6)
 	{
 		"<C-F6>",
 		function()
@@ -59,18 +54,7 @@ wk.add({
 		end,
 		desc = "Git Log Line",
 	},
-	{
-		"<leader>ggl",
-		function()
-			Snacks.lazygit()
-		end,
-		desc = "Lazygit",
-	},
-	{
-		"<leader>ggn",
-		"<cmd>Neogit<cr>",
-		desc = "Lazygit",
-	},
+	{ "<leader>gg", "<cmd>Neogit<cr>", desc = "NeoGit" },
 	{
 		"<leader>gG",
 		function()
@@ -105,8 +89,7 @@ wk.add({
 			Snacks.picker.git_log_file()
 		end,
 		desc = "Git Log File",
-	},
-	-- gh
+	}, -- gh
 	{
 		"<leader>gi",
 		function()
@@ -137,7 +120,11 @@ wk.add({
 	},
 	{ "<leader>gdo", "<Cmd>DiffviewOpen<CR>", desc = "Open Diffview" },
 	{ "<leader>gdc", "<Cmd>DiffviewClose<CR>", desc = "Close Diffview" },
-	{ "<leader>gdf", "<Cmd>DiffviewFileHistory<CR>", desc = "Open Diffview history" },
+	{
+		"<leader>gdf",
+		"<Cmd>DiffviewFileHistory<CR>",
+		desc = "Open Diffview history",
+	},
 	{ "<leader>gdt", "<Cmd>DiffviewToggleFiles<CR>", desc = "Open Toggle" },
 })
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
