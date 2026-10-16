@@ -116,6 +116,11 @@ wk.add({
 			})
 		end,
 	},
+	{ "<leader><esc>", "<C-\\><C-n>", desc = "Выйти в Normal mode", mode = { "t" } },
+	{ "<leader>h", "<C-\\><C-n><C-w>h", desc = "Перейти к левому окну", mode = { "t" } },
+	{ "<leader>j", "<C-\\><C-n><C-w>j", desc = "Перейти к нижнему окну", mode = { "t" } },
+	{ "<leader>k", "<C-\\><C-n><C-w>k", desc = "Перейти к верхнему окну", mode = { "t" } },
+	{ "<leader>l", "<C-\\><C-n><C-w>l", desc = "Перейти к правому окну", mode = { "t" } },
 	{ "<leader>y", icon = "󰆏", group = "Yank to system buffer" },
 	-- 1. Normal mode (копирование строки или по оператору, например: <leader>yip)
 	{

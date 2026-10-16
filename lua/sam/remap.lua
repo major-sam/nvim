@@ -12,10 +12,6 @@ vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 -- NOTE: NORMAL yank end of line
 vim.keymap.set("n", "Y", "y$")
--- NOTE: NORMAL&VISUAL yank to + buffer
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = "yank selected and move to buffer" })
-vim.keymap.set("n", "<leader>Y", [["+Y]], { desc = "yank string and move to buffer" })
-
 -- NOTE: NORMAL delete buffer
 vim.keymap.set("n", "<C-q>", "<cmd>bd<CR>")
 
@@ -37,5 +33,5 @@ vim.keymap.set("n", "<c-l>", "<c-w>l")
 --" CTRL+UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
 vim.keymap.set("n", "<c-up>", "<c-w>-")
 vim.keymap.set("n", "<c-down>", "<c-w>+")
-vim.keymap.set("n", "<c-left>", "<c-w>>")
+vim.keymap.set("n", "<c-left>", "<c-w>")
 vim.keymap.set("n", "<c-right>", "<c-w><")
