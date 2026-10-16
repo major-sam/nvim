@@ -13,7 +13,7 @@ wk.add({
 	{
 		"<F6>",
 		function()
-			require("neogit").lib.git.push.push()
+			require("neogit").cli.push.call()
 		end,
 		desc = "Neogit: Push",
 	},
@@ -21,9 +21,12 @@ wk.add({
 		"<C-F6>",
 		function()
 			local neogit = require("neogit")
-			neogit.lib.git.stage.all()
-			neogit.lib.git.commit.create({ arguments = { "--amend", "--no-edit" } })
-			neogit.lib.git.push.push({ arguments = { "--force-with-lease" } })
+			-- Добавляем все изменения
+			neogit.cli.add.args("-A").call()
+			-- Делаем тихий amend
+			neogit.cli.commit.args("--amend", "--no-edit").call()
+			-- Делаем принудительный push с защитой lease
+			neogit.cli.push.args("--force-with-lease").call()
 		end,
 		desc = "Neogit: Amend & Force Push",
 	},
