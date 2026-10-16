@@ -4,26 +4,28 @@ wk.add({
 	{
 		"<F5>",
 		function()
-			vim.cmd.Git("stage *")
-			vim.cmd.Git("commit")
+			local neogit = require("neogit")
+			neogit.cli.add.args("-A").call()
+			neogit.open({ "commit" })
 		end,
-		desc = "Git Stage & Commit",
-	}, -- 3. Push без force
+		desc = "Neogit: Stage All & Commit",
+	},
 	{
 		"<F6>",
 		function()
-			vim.cmd.Git("push --no-force-with-lease")
+			require("neogit").lib.git.push.push()
 		end,
-		desc = "Git Push (No Force)",
-	}, -- 4. Amend + Force Push (исправленный Ctrl + F6)
+		desc = "Neogit: Push",
+	},
 	{
 		"<C-F6>",
 		function()
-			vim.cmd.Git("stage *")
-			vim.cmd.Git("commit --amend --no-edit")
-			vim.cmd.Git("push --force-with-lease")
+			local neogit = require("neogit")
+			neogit.lib.git.stage.all()
+			neogit.lib.git.commit.create({ arguments = { "--amend", "--no-edit" } })
+			neogit.lib.git.push.push({ arguments = { "--force-with-lease" } })
 		end,
-		desc = "Git Amend & Force Push",
+		desc = "Neogit: Amend & Force Push",
 	},
 	{
 		"<leader>gb",

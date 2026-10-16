@@ -72,6 +72,7 @@ wk.add({
 		function()
 			Snacks.terminal()
 		end,
+		mode = { "n", "x", "t" },
 		desc = "Toggle Terminal",
 	},
 	{
